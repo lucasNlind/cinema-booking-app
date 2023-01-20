@@ -10,17 +10,31 @@ The first thing you should do **anytime** you pull code is run `npm install`.
 
 ## Pushing Code
 
-
+Having a consistent approach to pushing code will be essential for 
 
 ### Frontend Development
 
-For frontend development work, there are two methods for starting a local server that you can use depending on the situation. For basic visual changes that require no API or database logic, simply `cd` into the `cinema-booking-client` folder, install dependencies with `npm install`, and run `npm run start`. Here, you can make your changes and receive real-time feedback thanks to React.js.
+For frontend development work, there are two methods for starting a local server that you can use depending on the situation.
 
-For frontend work that requires data or API logic, you will need to build the client first and then run the server. To do this, `cd` into the `cinema-booking-client` folder and run `npm run build`. This will create a `dist` folder that is basically a compressed version of our client.
+For basic visual changes that require no API or database logic, run the following commands:
 
-Then, run `cd ..` to go back into the root folder and run `npm run start:dev`. The code has been set up so that our client is served via https://localhost:3000/home. This will allow you to view our entire application in development mode.
+1. `cd cinema-booking-client`
+2. `npm install`
+3. `npm run start`
 
-**Please keep in mind that the second method is not reactive to any frontend changes in the client folder.** Each time you make a change in the client, you will need to run the build script and restart the application. 
+Here, you can make your changes and receive real-time feedback thanks to React.js.
+
+For frontend work that requires data or API logic from the backend, you will need to build the client first and then run the server. To do this, run the following:
+
+1. `cd cinema-booking-client`
+2. `npm install`
+3. `npm run build`
+4. `cd ..`
+5. `npm run start:dev`
+
+***It is important to note that any changes you make to the client AFTER running these commands will not be reflected visually in your local development***. What these commands are doing is building a static and compressed version of our client into a folder called `dist` that we give to our server. If we need to make any changes to our client, we must rebuild the code and replace what was previously in the `dist` folder.
+
+Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
 
 ## Running the app
 
