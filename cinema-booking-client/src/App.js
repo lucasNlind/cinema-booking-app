@@ -19,6 +19,7 @@ function App() {
         </a>
         <p> Austin Barfield </p>
         <p> Nidhi Dahiya </p>
+        <p>Aben Ricks</p>
       </header>
     </div>
   );
