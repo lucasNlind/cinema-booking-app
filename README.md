@@ -33,7 +33,7 @@ Please use the below steps as a general outline each time you sit down to make c
 
 I (Luke), will be in charge of reviewing any PR's relating to frontend development work, and Evan will be in charge of reviewing PR's for backend related work. Only I or Evan can give approval for PR's. 
 
-### Frontend Development
+## Frontend Development
 
 For frontend development work, there are two methods for starting a local server that you can use depending on the situation.
 
@@ -57,6 +57,8 @@ For frontend work that requires data or API logic from the backend, you will nee
 
 Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
 
-### Backend Development
+## Backend Development
 
+To run the backend application, simply navigate into the root directory and run `npm run start:dev`.
 
+I will provide information regarding our MongoDB database as soon as I set it up.
