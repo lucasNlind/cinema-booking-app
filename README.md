@@ -6,11 +6,13 @@ Please use this README as a one-stop resource. Outlined below will be guidelines
 
 This repo contains two source folders, `cinema-booking-client` and `cinema-booking-server`. The client folder contains all front-end related code and can be treated as an independent entity. The server folder, on the other hand, is our middleware. This is where all database logic will be handled, in addition to the logic required to serve our static client folder: `cinema-booking-client`. 
 
-The first thing you should do **anytime** you pull code is run `npm install`. 
+The first thing you should do **anytime** you pull code is run `npm install`. This ensures that you have the most up-to-date package information.
 
 ## Pushing Code
 
-Having a consistent approach to pushing code will be essential for maintaining our repo. There is only one rule you must follow: ***Nobody, under any circumstance, is to push their code directly to the main branch.***
+Git is an amazing tool for these kinds of projects, and utilizing it effectively will be essential for maintaining our repository. There is only one rule:
+
+***Nobody, under any circumstance, is to push their code directly to the master branch.***
 
 ### Frontend Development
 
