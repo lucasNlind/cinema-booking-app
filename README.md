@@ -8,11 +8,30 @@ This repo contains two source folders, `cinema-booking-client` and `cinema-booki
 
 The first thing you should do **anytime** you pull code is run `npm install`. This ensures that you have the most up-to-date package information.
 
-## Pushing Code
+## Git Essentials
 
 Git is an amazing tool for these kinds of projects, and utilizing it effectively will be essential for maintaining our repository. There is only one rule:
 
 ***Nobody, under any circumstance, is to push their code directly to the master branch.***
+
+Doing this will most likely break things, and this is why we have code reviews. Everyone is strongly encouraged to provide feedback for others on their code, and the combined efforts of this feedback will result in a higher quality application. 
+
+Because you are not allowed to push directly to the master branch, you must create your own branch, commit your changes, submit a pull request, and respond to feedback. Once your branch has been approved, you can merge your code. 
+
+Please use the below steps as a general outline each time you sit down to make changes:
+
+1. Pull the most recent changes from the master branch: `git pull origin master`
+2. If you are not already on your own branch, checkout to a new one by running: `git checkout -b BRANCH_NAME`. You can view your current branch by running `git branch`
+3. Make your changes
+4. Add the files to be included in your commit, either: `git add -u` or `git add .`
+5. Commit your changes to your branch, making sure to use a descriptive commit message: `git commit -m "DESCRIPTIVE_MESSAGE"`
+6. Push your changes to your branch: `git push -u origin BRANCH_NAME`
+7. Go to github.com and submit a pull request
+8. Send teammates a message about your PR and ask for feedback
+9. Respond to feedback and update your PR
+10. Once approved, merge your code
+
+I (Luke), will be in charge of reviewing any PR's relating to frontend development work, and Evan will be in charge of reviewing PR's for backend related work. Only I or Evan can give approval for PR's. 
 
 ### Frontend Development
 
@@ -38,42 +57,6 @@ For frontend work that requires data or API logic from the backend, you will nee
 
 Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
 
-## Running the app
+### Backend Development
 
-```bash
-# development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
