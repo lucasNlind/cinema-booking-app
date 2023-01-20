@@ -1,4 +1,4 @@
-### Cinema Booking App
+# Cinema Booking App
 
 Please use this README as a one-stop resource. Outlined below will be guidelines for development work, including best practices for code reviews, git basics, and other general information. 
 
@@ -8,7 +8,11 @@ This repo contains two source folders, `cinema-booking-client` and `cinema-booki
 
 The first thing you should do **anytime** you pull code is run `npm install`. 
 
-# Frontend Development
+## Pushing Code
+
+
+
+### Frontend Development
 
 For frontend development work, there are two methods for starting a local server that you can use depending on the situation. For basic visual changes that require no API or database logic, simply `cd` into the `cinema-booking-client` folder, install dependencies with `npm install`, and run `npm run start`. Here, you can make your changes and receive real-time feedback thanks to React.js.
 
