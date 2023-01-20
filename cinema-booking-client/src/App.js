@@ -18,6 +18,7 @@ function App() {
           Learn React
         </a>
         <p> Austin Barfield </p>
+        <p> Nidhi Dahiya </p>
       </header>
     </div>
   );
