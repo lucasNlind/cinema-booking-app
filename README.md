@@ -10,7 +10,7 @@ The first thing you should do **anytime** you pull code is run `npm install`.
 
 ## Pushing Code
 
-Having a consistent approach to pushing code will be essential for 
+Having a consistent approach to pushing code will be essential for maintaining our repo. There is only one rule you must follow: ***Nobody, under any circumstance, is to push their code directly to the main branch.***
 
 ### Frontend Development
 
@@ -32,7 +32,7 @@ For frontend work that requires data or API logic from the backend, you will nee
 4. `cd ..`
 5. `npm run start:dev`
 
-***It is important to note that any changes you make to the client AFTER running these commands will not be reflected visually in your local development***. What these commands are doing is building a static and compressed version of our client into a folder called `dist` that we give to our server. If we need to make any changes to our client, we must rebuild the code and replace what was previously in the `dist` folder.
+***It is important to note that any changes you make to the client AFTER running these commands will not be reflected visually in your local development***. To see your new frontend changes, you must kill your current local server and run the above commands to restart the application. 
 
 Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
 
