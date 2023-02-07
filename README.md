@@ -55,10 +55,49 @@ For frontend work that requires data or API logic from the backend, you will nee
 
 ***It is important to note that any changes you make to the client AFTER running these commands will not be reflected visually in your local development***. To see your new frontend changes, you must kill your current local server and run the above commands to restart the application. 
 
-Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
+Once the application runs, however, the code has been setup so that our client is served via http://localhost:3000/home. You can use this URL for local development. 
 
 ## Backend Development
 
 To run the backend application, simply navigate into the root directory and run `npm run start:dev`.
 
 I will provide information regarding our MongoDB database as soon as I set it up.
+
+
+```
+Step 1: Write a SQL script to populate the DB with:
+1. root admin
+2. test user
+3. test booking
+4. test ticket 
+5. test movie
+
+Administrator:  id (int) | movie id (int) | user id (int) 
+User:           id  (int)  | email (varchar) | name (varchar) | phone number (varchar) | email address (varchar) | password (varchar) |
+Booking:        id   (int) | user_id (int)   | ticket_id (int) | movie title  (varchar) | show date (datetime) | time (datetime) | credit card number (TBD)
+Ticket:         id  (int) | movie_id (int) | price 
+Movie:          id   (int) | movie title  (varchar) |  category (varchar) |  cast (varchar) | director (varchar) | producer (varchar) | synopsis (varchar) | reviews (varchar) | trailer (varchar) | MPAA-US film rating code (TBD) | show dates (datetime) |  times (TBD) |  
+
+
+Step 2: Create Admin routes
+- Create 
+- Read
+- Update
+- Delete
+
+Step 3: Use Admin role to create a user
+
+Step 4: Use Admin role to create a booking
+
+Step 5: Use Admin role to create a ticket
+
+Step 6: Use Admin role to create a movie
+
+
+Step 7: Write a SQL script to populate the DB with:
+1. root admin
+2. test user
+3. test booking
+4. test ticket 
+5. test movie
+```
