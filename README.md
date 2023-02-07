@@ -55,10 +55,149 @@ For frontend work that requires data or API logic from the backend, you will nee
 
 ***It is important to note that any changes you make to the client AFTER running these commands will not be reflected visually in your local development***. To see your new frontend changes, you must kill your current local server and run the above commands to restart the application. 
 
-Once the application runs, however, the code has been setup so that our client is served via https://localhost:3000/home. You can use this URL for local development. 
+Once the application runs, however, the code has been setup so that our client is served via http://localhost:3000/home. You can use this URL for local development. 
 
 ## Backend Development
 
 To run the backend application, simply navigate into the root directory and run `npm run start:dev`.
 
 I will provide information regarding our MongoDB database as soon as I set it up.
+
+# Database
+We will run MongoDB with Docker and Docker Compose
+
+[Install with](https://www.mongodb.com/docs/manual/installation/)
+## Usage (start server)
+
+`docker-compose.yml` contains the information for starting the server. 
+
+```
+// non detach mode
+docker-compose up
+```
+or
+```
+// detach mode
+docker-compose up -d
+```
+
+This will spin up the MongoDB latest version (currently 4.x.x version), expose port to host at 27017.
+
+## Usage (stop server)
+
+To shutdown database without remove the container.
+
+```
+docker-compose stop
+```
+
+To shutdown database and remove the container.
+```
+docker-compose down
+```
+
+Is data or user that already created will gone? 
+No, since in the Docker Compose file you can see that we utilize data container named `mongodb_data_container` to store the MongoDB data.
+
+## MongoDB credential (for database `admin`)
+
+- Username: root
+- Password: rootpassword
+
+## How to connect to MongoDB
+
+### Via mongo Shell
+
+Type this.
+
+```
+mongo admin -u root -p rootpassword
+```
+
+It will connect to localhost port 27017.
+
+Note that `mongo` command should be installed on the computer. On Linux this should be install `mongodb-org-shell` only. Refer to this for more detail https://docs.mongodb.com/manual/installation/
+
+## Some quick tips after logged-in
+
+Show databases:
+```
+show dbs
+```
+
+Create new non-existant database:
+```
+use mydatabase
+```
+
+Show collections:
+```
+show collections
+```
+
+Show contents of a collection:
+```
+db.your_collection_name.find()
+```
+
+Save a data to a collection:
+```
+db.your_collection_name.save({"name":"Sony AK"})
+```
+
+Show database version:
+```
+db.version()
+```
+
+
+
+```
+Step 1: Write a SQL script to populate the DB with:
+1. root admin
+2. test user
+3. test booking
+4. test ticket 
+5. test movie
+
+Administrator:  id (int) | movie id (int) | user id (int) 
+User:           id  (int)  | email (varchar) | name (varchar) | phone number (varchar) | email address (varchar) | password (varchar) |
+Booking:        id   (int) | user_id (int)   | ticket_id (int) | movie title  (varchar) | show date (datetime) | time (datetime) | credit card number (TBD)
+Ticket:         id  (int) | movie_id (int) | price 
+Movie:          id   (int) | movie title  (varchar) |  category (varchar) |  cast (varchar) | director (varchar) | producer (varchar) | synopsis (varchar) | reviews (varchar) | trailer (varchar) | MPAA-US film rating code (TBD) | show dates (datetime) |  times (TBD) |  
+
+
+Step 2: Create Admin routes
+- Create 
+- Read
+- Update
+- Delete
+
+Step 3: Use Admin role to create a user
+
+Step 4: Use Admin role to create a booking
+
+Step 5: Use Admin role to create a ticket
+
+Step 6: Use Admin role to create a movie
+
+
+Step 7: Write a SQL script to populate the DB with:
+1. root admin
+2. test user
+3. test booking
+4. test ticket 
+5. test movie
+```
+
+```
+docker pull mongo
+````
+
+```
+docker run --name cinemma_db -d mongo:latest
+```
+
+```
+docker run -it --network localhost --rm mongo mongosh --host cinema_db test
+```
