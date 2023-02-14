@@ -1,0 +1,11 @@
+.homepg {
+        height: calc(100vh - 50px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #144272;
+        background-size: cover;
+        font-family: 'Cabin', sans-serif;
+        color: aliceblue;
+}
