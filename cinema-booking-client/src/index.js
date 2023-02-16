@@ -3,6 +3,30 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+//These are all the exported pages that App.js uses to route through. It looks better outside of the main router page
+export {default as Home} from './pages/home/Home';
+export {default as Navbar} from './components/navbar/NavbarElements';
+
+export {default as AdminHome} from './pages/admin/AdminHome';
+export {default as AddMovie} from './pages/admin/AddMovie';
+export {default as EditMovie} from './pages/admin/EditMovie';
+export {default as ManageMovies} from './pages/admin/ManageMovies';
+export {default as PricingPromo} from './pages/admin/PricingPromo';
+export {default as UserPortal} from './pages/admin/UserPortal';
+
+export {default as Login} from './pages/login/Login';
+export {default as ChangePassword} from './pages/login/ChangePassword';
+export {default as ForgotPassword} from './pages/login/ForgotPassword';
+
+export {default as Profile} from './pages/profile/Profile';
+export {default as EditProfile} from './pages/profile/EditProfile';
+
+export {default as Register} from './pages/register/Register';
+export {default as RegisterConfirmation} from './pages/register/RegisterConfirmation';
+export {default as RegisterEmail} from './pages/register/RegisterEmail';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

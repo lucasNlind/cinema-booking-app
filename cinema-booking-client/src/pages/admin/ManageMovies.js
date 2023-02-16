@@ -1,0 +1,1 @@
+//page to manage movies (edit, delete, add)

@@ -1,0 +1,1 @@
+//same as add movie page

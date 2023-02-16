@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './home.css';
 
 const Home = () => {
@@ -8,7 +9,10 @@ const Home = () => {
 
             We can have React fetch the movies and display them as a list (almost like a blog)
 
+
         </div>
+
+        
     );
 };
 
