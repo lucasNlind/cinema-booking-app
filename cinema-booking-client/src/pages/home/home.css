@@ -1,17 +1,72 @@
 .homepg {
-        height: calc(100vh - 50px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        text-align: center;
         justify-content: center;
-        background-color: #144272;
+        background-color: #eee0cc;
         background-size: cover;
         font-family: 'Cabin', sans-serif;
-        color: aliceblue;
+        color: black;
 }
 
-.profileBtn {
+.searchBar {
+        margin-top: 20px;
+        margin-right: 10%;
+        display: flex;
+        justify-content: flex-end;
         align-items: center;
-        color: beige;
+}
 
+input {
+        width: 300px;
+        height: 30px;
+        font-size: large;
+        border-radius: 5px;
+        background-color: #f5d19e;
+        margin-right: 5px;
+
+}
+
+.searchBtn {
+        border: none;
+        padding: 10px 10px;
+        cursor: pointer;
+        background-color: #f5d19e;
+        border-radius: 5px;
+}
+
+.searchBtn:hover {
+        background-color: #f7ca8b;
+}
+
+.header{
+        display: flex;
+        flex-direction: column;        
+}
+
+.nowPlayingWrap {
+        border-radius: 10px; /* Invisible right now unless you add a bg color*/
+}
+
+.nowPlaying{
+        width: 100%; 
+        text-align: center; 
+        border-bottom: 1px solid #000; 
+        line-height: 0.1em;
+        margin: 30px 0 20px;
+}
+
+.comingSoonWrap {
+        border-radius: 10px; /* Invisible right now unless you add a bg color*/
+}
+
+.comingSoon {
+        width: 100%; 
+        text-align: center; 
+        border-bottom: 1px solid #000; 
+        line-height: 0.1em;
+        margin: 30px 0 20px;
+}
+
+h1 span {
+        background:#eee0cc; 
+        padding:0 10px; 
 }

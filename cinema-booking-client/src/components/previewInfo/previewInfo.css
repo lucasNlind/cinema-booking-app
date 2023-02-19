@@ -1,0 +1,21 @@
+.singleMovieInfo {
+    flex: 9;
+}
+
+.singleMovieWrap {
+    padding: 10px;
+    background-color: #eee0cc;
+    
+    
+}
+
+.singleMovieImg {
+    margin-right: 30px;
+    height: 400px;
+}
+
+.headerPreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -8,6 +8,8 @@ import reportWebVitals from './reportWebVitals';
 export {default as Home} from './pages/home/Home';
 export {default as Navbar} from './components/navbar/NavbarElements';
 
+export {default as PreviewMovie} from './pages/previewMovie/PreviewMovie';
+
 export {default as AdminHome} from './pages/admin/AdminHome';
 export {default as AddMovie} from './pages/admin/AddMovie';
 export {default as EditMovie} from './pages/admin/EditMovie';

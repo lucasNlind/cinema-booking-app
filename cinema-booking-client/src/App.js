@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import {Home, Navbar, AdminHome, AddMovie, EditMovie, ManageMovies, PricingPromo, UserPortal, ChangePassword, ForgotPassword,
+import {Home, PreviewMovie, Navbar, AdminHome, AddMovie, EditMovie, ManageMovies, PricingPromo, UserPortal, ChangePassword, ForgotPassword,
   Login, Profile, EditProfile, Register, RegisterConfirmation, RegisterEmail} from './index';
 {/* These are the imported components from the index.js file so it is neater in the App.js file*/}
 
@@ -12,6 +12,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path='/' element={<Home />} />
+
+{/*This single page is hard coded at the moment for the demo, since the db isn't set up */}
+        <Route path="/single" element={<PreviewMovie />} />
 
         <Route path='/adminhome' element={<AdminHome />} />
         <Route path='/addmovie' element={<AddMovie />} />
