@@ -1,7 +1,16 @@
 .header {
     height: 50%;
     width: 100%;
-    background-color: #01ABAA;
     color: black;
+    background-color: black;
     text-align: center;
+    display:block;
+    position:relative;
+}
+
+
+.heroImg {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }

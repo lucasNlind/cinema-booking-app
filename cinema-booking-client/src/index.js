@@ -28,6 +28,11 @@ export {default as Register} from './pages/register/Register';
 export {default as RegisterConfirmation} from './pages/register/RegisterConfirmation';
 export {default as RegisterEmail} from './pages/register/RegisterEmail';
 
+export {default as TicketSelect} from './pages/booking/TicketSelect';
+export {default as SeatSelect} from './pages/booking/SeatSelect';
+export {default as OrderSummary} from './pages/booking/OrderSummary';
+export {default as Checkout} from './pages/booking/Checkout';
+export {default as OrderConfirmation} from './pages/booking/OrderConfirmation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

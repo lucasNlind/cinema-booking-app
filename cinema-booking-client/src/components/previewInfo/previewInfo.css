@@ -19,3 +19,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.times {
+    margin: 10px;
+    width: 70px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: #FEA680;
+    border-radius: 4px;
+    color: black;
+
+}
+
+.times:hover {
+    background-color: #ff9669;
+}

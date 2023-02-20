@@ -1,0 +1,20 @@
+
+.orderWrap {
+    text-align: center;
+}
+
+.updateOrder {
+    margin-top: 50px;
+}
+
+.updateBtn {
+    width: 100px;
+    padding: 10px 5px 10px 5px;
+    text-decoration: none;
+    background-color: #FEA680;
+    border-radius: 4px;
+    color: black;
+}
+.updateBtn:hover {
+    background-color: #ff9669;
+}

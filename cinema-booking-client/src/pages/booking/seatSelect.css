@@ -1,0 +1,55 @@
+
+.seatWrap {
+    text-align: center;
+}
+
+.seatingTable {
+    text-align: center;
+}
+
+table {
+    border-spacing: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+th {
+    background-color: grey;
+    height: 20px;
+}
+
+.spaceFromScreen {
+    height: 100px;
+}
+
+
+button {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    background: none;
+    background-color: aqua;
+}
+
+button:hover {
+    background-color: rgb(10, 194, 194);
+}
+
+.orderBtn {
+    width: 100px;
+    padding: 10px 5px 10px 5px;
+    text-decoration: none;
+    background-color: #FEA680;
+    border-radius: 4px;
+    color: black;
+}
+
+.orderBtn:hover {
+    background-color: #ff9669;
+}
+
+.buttonCenter {
+    margin-top: 50px;
+    text-align: center;
+}

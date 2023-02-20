@@ -1,4 +1,5 @@
 import './previewInfo.css';
+import { Link } from 'react-router-dom';
 
 
 function PreviewInfo() {
@@ -31,13 +32,13 @@ function PreviewInfo() {
 
                     <div className="showtimes">
                         Feb 22nd <br/>
-                        <button>7:00</button>
-                        <button>8:30</button>
+                        <Link to="/ticketselect"><button className="times">7:00</button>
+                        <button className="times">8:30</button></Link>
                         <br/>
 
                         Feb 24th <br/>
-                        <button>9:00</button>
-                        <button>10:15</button>
+                        <Link to="/ticketselect"><button className="times">9:00</button>
+                        <button className="times">10:15</button></Link>
                     </div>
                 </div>
             </div>
