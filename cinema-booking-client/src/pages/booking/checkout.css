@@ -7,3 +7,90 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+.inputField {
+    font-family: 'Cabin', arial;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f5d19e;
+}
+
+.formatSideBySide {
+    margin-top: 10px;
+    margin-right: 20px;
+    align-content: center;
+}
+
+.exp {
+    margin-right: 180px;
+}
+
+.dropDownMonth {
+    background-color: #f5d19e;
+    width: 100px;
+    height: 30px;
+    margin-right: 10px;
+    
+}
+
+.dropDownYear {
+    background-color: #f5d19e;
+    width: 80px;
+    height: 30px;
+    
+}
+
+.cvv {
+    font-family: 'Cabin', arial;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 60px;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f5d19e;
+    text-align: center;
+}
+
+.city {
+    font-family: 'Cabin', arial;
+    margin-right: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f5d19e;
+}
+
+.state {
+    font-family: 'Cabin', arial;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f5d19e;
+    text-align: center;
+}
+
+.zip {
+    font-family: 'Cabin', arial;
+    margin-right: 180px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 120px;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    background-color: #f5d19e;
+    text-align: center;
+}
