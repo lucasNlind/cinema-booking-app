@@ -15,6 +15,9 @@ const NavbarElements= () =>{
       <li>
       <Link to="/register">Register</Link>
       </li>
+      <li>
+      <Link to="/adminhome">Admin</Link>
+      </li>
   </ul>
   );
 }
