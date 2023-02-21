@@ -1,3 +1,9 @@
+
+/*Temp background color for all pages*/
+html {
+        background-color: #eee0cc;
+}
+
 .homepg {
         text-align: center;
         justify-content: center;

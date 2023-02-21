@@ -1,8 +1,16 @@
+.profileWrap {
+    font-family: 'Cabin', arial;
+    text-align: center;
+}
 
-
+.buttonCenter {
+    display: inline-flex;
+    flex-direction: column;
+}
 .profileBtn {
-    width: 100px;
+    width: 150px;
     padding: 10px 5px 10px 5px;
+    margin-bottom: 10px;
     text-decoration: none;
     background-color: #FEA680;
     border-radius: 4px;

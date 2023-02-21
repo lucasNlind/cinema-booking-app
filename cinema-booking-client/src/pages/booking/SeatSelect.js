@@ -17,7 +17,7 @@ const SeatSelect = () => {
                         </tr>
                     </thead>
                     <tr>
-                        <td><button>A1</button></td>
+                        <td id="td"><button>A1</button></td>
                         <td><button>A2</button></td>
                         <td><button>A3</button></td>
                         <td><button>A4</button></td>

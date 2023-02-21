@@ -6,7 +6,6 @@ const Checkout = () => {
         <div className="checkoutWrap">
             <h1 className="checkoutTitle">Select or Enter Payment Information</h1>
             <hr></hr>
-            <hr></hr>
             <div className="cardField">
                 <form>
                     <input type="text" placeholder="Name"></input>
@@ -48,8 +47,8 @@ const Checkout = () => {
                 
                 </div>
             </div>
+            
             <h3>Billing Address</h3>
-            <hr></hr>
 
             <div className="billingField">
                 <form>
@@ -65,7 +64,6 @@ const Checkout = () => {
             </div>
 
             <h3>Promo Code</h3>
-            <hr></hr>
 
             <div className="promoField">
                 <form>

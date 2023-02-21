@@ -15,12 +15,10 @@ const Profile = () => {
             <span className="profileEmail">Email: abenricks@gmail.com</span>
             <br></br>
             <span className="savedPayments">Saved Payments: </span>
-
+            <br></br>
             <div className="buttonCenter">
             <Link className="profileBtn" to="/changepassword">Change Password</Link>
-            <br></br>
-            <br></br>
-            <br></br>
+ 
             <Link className="profileBtn" to="/addpayment">Add Payment Method</Link>
             </div>
 

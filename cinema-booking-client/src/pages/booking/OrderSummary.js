@@ -5,31 +5,51 @@ import { Link } from 'react-router-dom';
 const OrderSummary = () => {
     return (
         <div className="orderWrap">
-            <h1 className="orderTitle">Order Confirmation</h1>
+            <h1 className="orderTitle">Order Summary</h1>
             <hr></hr>
 
             <div className="orderSummary">
-                Name of the Movies
+                Name of the Movie
                 <div className="ticketTotal">
-                    2 x Adult Tickets - $24.00
+                    <table className="ticketTable">
+                        <tr>
+                            <th>Ticket Type</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Cost</th>
+                        </tr>
+                        <tr>
+                            <td>Adult Ticket</td>
+                            <td>$12.00</td>
+                            <td>2</td>
+                            <td>$24.00</td>
+                        </tr>
+                    </table>
+
+                    <table className="feeTable">
+                        <tr>
+                            <th>Fee Type</th>
+                            <th>Cost</th>
+                        </tr>
+                        <tr>
+                            <td>Online Booking Fee</td>
+                            <td>$2.00</td>
+                        </tr>
+                        <tr>
+                            <td>Taxes</td>
+                            <td>$1.57</td>
+                        </tr>
+                    </table>
                     <br></br>
-                    Online Booking Fee - $2.00
-                    <br></br>
-                    Taxes - $1.57
-                    <br></br>
-                    Total = $27.57
+                    Order Total = $27.57
                 </div>
             </div>
 
             <div className="updateOrder">
             <Link className="updateBtn" to="/ticketselect">Change Tickets</Link>
-            <br></br>
-            <br></br>
-            <br></br>
+
             <Link className="updateBtn" to="/single">Update Order</Link>
-            <br></br>
-            <br></br>
-            <br></br>
+
             <Link className="updateBtn" to="/checkout">Checkout</Link>
             </div>
         </div>

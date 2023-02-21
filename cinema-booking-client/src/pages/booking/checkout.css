@@ -1,9 +1,9 @@
+.checkoutWrap {
+    text-align: center;
+    font-family: 'Cabin', arial;
+}
+
 form {
     display: flex;
     flex-direction: column;
 }
-
-.checkoutWrap {
-    text-align: center;
-}
-

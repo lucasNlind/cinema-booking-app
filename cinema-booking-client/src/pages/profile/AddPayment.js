@@ -47,8 +47,8 @@ const AddPayment = () => {
                 
                 </div>
             </div>
+            
             <h3>Billing Address</h3>
-            <hr></hr>
 
             <div className="billingField">
                 <form>

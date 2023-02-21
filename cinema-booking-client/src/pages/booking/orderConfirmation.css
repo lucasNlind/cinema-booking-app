@@ -1,9 +1,11 @@
 
 .confirmWrap {
     text-align: center;
+    font-family: 'Cabin', arial;
 }
 
 .emailSent{
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 .homeBtn {

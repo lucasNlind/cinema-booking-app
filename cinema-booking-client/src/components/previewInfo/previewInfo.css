@@ -1,5 +1,6 @@
 .singleMovieInfo {
     flex: 9;
+    font-family: 'Cabin', arial;
 }
 
 .singleMovieWrap {

@@ -1,6 +1,7 @@
 
 .seatWrap {
     text-align: center;
+    font-family: 'Cabin', arial;
 }
 
 .seatingTable {
@@ -15,7 +16,7 @@ table {
 }
 
 th {
-    background-color: grey;
+    background-color: rgb(143, 141, 137);
     height: 20px;
 }
 
@@ -29,11 +30,11 @@ button {
     border-radius: 5px;
     border: none;
     background: none;
-    background-color: aqua;
+    background-color: #89c4b7;
 }
 
 button:hover {
-    background-color: rgb(10, 194, 194);
+    background-color: #80f1d1;
 }
 
 .orderBtn {

@@ -46,7 +46,7 @@ const TicketSelect = () => {
             </select>
             </div>
 
-            <div className="buttonCenter">
+            <div className="buttonAlign">
             <Link className="seatBtn" to="/seatselect">Select Seats</Link>
             </div>
             

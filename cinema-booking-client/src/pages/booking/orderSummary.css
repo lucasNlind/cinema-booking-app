@@ -1,14 +1,25 @@
 
 .orderWrap {
     text-align: center;
+    font-family: 'Cabin', arial;
+}
+
+.orderSummary {
+    font-size: 20px;
+}
+
+.ticketTotal {
+    margin-top: 10px;
 }
 
 .updateOrder {
     margin-top: 50px;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .updateBtn {
-    width: 100px;
+    margin-bottom: 10px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
     background-color: #FEA680;
@@ -17,4 +28,18 @@
 }
 .updateBtn:hover {
     background-color: #ff9669;
+}
+
+.ticketTable {
+    border: 1px solid;
+
+    margin-bottom: 15px;
+}
+
+
+
+
+
+.feeTable {
+    border: 1px solid;
 }
