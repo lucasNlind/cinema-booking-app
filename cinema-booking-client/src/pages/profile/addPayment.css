@@ -4,7 +4,7 @@
     font-family: 'Cabin', arial;
 }
 
-input {
+.inputField {
     font-family: 'Cabin', arial;
     margin-left: auto;
     margin-right: auto;
@@ -43,6 +43,7 @@ input {
 }
 
 .cvv {
+    font-family: 'Cabin', arial;
     margin-top: 10px;
     margin-left: 30px;
     width: 60px;
@@ -54,10 +55,11 @@ input {
 }
 
 .city {
+    font-family: 'Cabin', arial;
     margin-right: 12px;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 220px;
+    width: 200px;
     height: 30px;
     font-size: large;
     border-radius: 5px;
@@ -65,6 +67,7 @@ input {
 }
 
 .state {
+    font-family: 'Cabin', arial;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 60px;
@@ -76,6 +79,7 @@ input {
 }
 
 .zip {
+    font-family: 'Cabin', arial;
     margin-right: 180px;
     margin-top: 5px;
     margin-bottom: 5px;

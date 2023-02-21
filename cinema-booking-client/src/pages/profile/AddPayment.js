@@ -8,8 +8,8 @@ const AddPayment = () => {
             <hr></hr>
             <div className="cardField">
                 <form>
-                    <input type="text" placeholder="Name"></input>
-                    <input type="text" placeholder="Card Number"></input>
+                    <input className="inputField" type="text" placeholder="Name"></input>
+                    <input className="inputField"  type="text" placeholder="Card Number"></input>
                 </form>
 
                 <div className="formatSideBySide">
@@ -52,7 +52,7 @@ const AddPayment = () => {
 
             <div className="billingField">
                 <form>
-                    <input type="text" placeholder="Street Address"></input>
+                    <input className="inputField" type="text" placeholder="Street Address"></input>
                     
                     <div className="condense">
                     <input className="city" type="text" placeholder="City"></input>

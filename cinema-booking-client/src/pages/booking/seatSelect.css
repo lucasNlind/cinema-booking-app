@@ -8,8 +8,9 @@
     text-align: center;
 }
 
-table {
+.tableSeats {
     border-spacing: 10px;
+    border: 0;
     margin-left: auto;
     margin-right: auto;
     
@@ -25,7 +26,7 @@ th {
 }
 
 
-button {
+.seatBtn {
     padding: 20px;
     border-radius: 5px;
     border: none;
