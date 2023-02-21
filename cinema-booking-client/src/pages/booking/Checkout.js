@@ -8,8 +8,10 @@ const Checkout = () => {
             <hr></hr>
             <div className="cardField">
                 <form>
-                    <input type="text" placeholder="Name" required></input>
-                    <input type="text" placeholder="Card Number" required></input>
+
+                    <input className="inputField" type="text" placeholder="Name" required></input>
+                    <input className="inputField" type="text" placeholder="Card Number" required></input>
+
                 </form>
 
                 <div className="formatSideBySide">
@@ -52,7 +54,7 @@ const Checkout = () => {
 
             <div className="billingField">
                 <form>
-                    <input type="text" placeholder="Street Address" required></input>
+                    <input className="inputField" type="text" placeholder="Street Address" required></input>
                     
                     <div className="condense">
                     <input className="city" type="text" placeholder="City" required></input>
@@ -67,7 +69,7 @@ const Checkout = () => {
 
             <div className="promoField">
                 <form>
-                    <input type="text" placeholder="Promo Code"></input>
+                    <input className="inputField" type="text" placeholder="Promo Code"></input>
                 </form>
             </div>
 
