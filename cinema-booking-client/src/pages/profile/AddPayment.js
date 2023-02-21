@@ -1,11 +1,10 @@
-import './checkout.css';
 import { Link } from 'react-router-dom';
+import './addPayment.css';
 
-const Checkout = () => {
+const AddPayment = () => {
     return (
-        <div className="checkoutWrap">
-            <h1 className="checkoutTitle">Select or Enter Payment Information</h1>
-            <hr></hr>
+        <div className ="addPayWrap">
+            <h1 className="enterPayTitle">Enter Payment Information</h1>
             <hr></hr>
             <div className="cardField">
                 <form>
@@ -64,20 +63,11 @@ const Checkout = () => {
                 </form>
             </div>
 
-            <h3>Promo Code</h3>
-            <hr></hr>
-
-            <div className="promoField">
-                <form>
-                    <input type="text" placeholder="Promo Code"></input>
-                </form>
-            </div>
-
-            <div className="buttonCenter">
-            <Link className="seatBtn" to="/orderconfirmation">Confirm Order</Link>
+            <div className="buttonWrap">
+                <Link className="addBtn" to="/profile">Add</Link>
             </div>
         </div>
     );
 };
 
-export default Checkout;
+export default AddPayment;

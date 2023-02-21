@@ -1,4 +1,5 @@
 import './orderConfirmation.css';
+import { Link } from 'react-router-dom';
 
 const OrderConfirmation = () => {
     return (
@@ -25,6 +26,8 @@ const OrderConfirmation = () => {
             <div className="emailSent">
                 A confirmation email for this purchase has been sent to:
             </div>
+
+            <Link className="homeBtn" to="/">Home</Link>
         </div>
     );
 };

@@ -11,7 +11,7 @@ const Home = () => {
                 <MovieCarousel />
             </div>
 
-            <div className="searchBar"><input type="text" placeholder="Search..."/>
+            <div className="searchBar"><input className="search" type="text" placeholder="Search..."/>
             <button className="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             

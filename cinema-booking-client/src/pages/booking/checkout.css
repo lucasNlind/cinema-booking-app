@@ -2,3 +2,8 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+.checkoutWrap {
+    text-align: center;
+}
+

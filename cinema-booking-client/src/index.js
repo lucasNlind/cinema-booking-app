@@ -22,7 +22,7 @@ export {default as ChangePassword} from './pages/login/ChangePassword';
 export {default as ForgotPassword} from './pages/login/ForgotPassword';
 
 export {default as Profile} from './pages/profile/Profile';
-export {default as EditProfile} from './pages/profile/EditProfile';
+export {default as AddPayment} from './pages/profile/AddPayment';
 
 export {default as Register} from './pages/register/Register';
 export {default as RegisterConfirmation} from './pages/register/RegisterConfirmation';

@@ -3,7 +3,7 @@ import './movieCarousel.css';
 function MovieCarousel() {
     return (
         <div className="header">
-            <img className="heroImg" src="https://ntvb.tmsimg.com/assets/p20056_v_h10_bh.jpg?w=960&h=540" alt="Titanic"/>
+            <iframe className="heroTrailer" width="880" height="515" src="https://www.youtube.com/embed/oHY7D7K58BM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
         </div>
     );

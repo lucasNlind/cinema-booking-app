@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Home, PreviewMovie, Navbar, AdminHome, AddMovie, EditMovie, ManageMovies, PricingPromo, UserPortal, ChangePassword, ForgotPassword,
-  Login, Profile, EditProfile, Register, RegisterConfirmation, RegisterEmail, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
+  Login, Profile, AddPayment, Register, RegisterConfirmation, RegisterEmail, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
 /* These are the imported components from the index.js file so it is neater in the App.js file*/
 
 
@@ -28,7 +28,7 @@ function App() {
         <Route path='/login' element={<Login />} />
 
         <Route path='/profile' element={<Profile />} />
-        <Route path='/editprofile' element={<EditProfile />} />
+        <Route path='/addpayment' element={<AddPayment />} />
 
         <Route path='/register' element={<Register />} />
         <Route path='/registerconfirmation' element={<RegisterConfirmation />} />
