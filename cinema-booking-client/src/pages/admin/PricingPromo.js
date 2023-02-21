@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './pricingpromo.css';
 
 const PricingPromo = () => {
@@ -91,6 +92,10 @@ const PricingPromo = () => {
           <button className="addBtn">Delete</button>
         </tr>
       </table>
+
+      <br></br>
+     
+      <Link className="seatBtn" to="/addpromo">Add Promo</Link>
 
     </div>
 

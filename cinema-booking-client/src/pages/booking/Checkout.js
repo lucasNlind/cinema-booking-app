@@ -8,12 +8,12 @@ const Checkout = () => {
             <hr></hr>
             <div className="cardField">
                 <form>
-                    <input type="text" placeholder="Name"></input>
-                    <input type="text" placeholder="Card Number"></input>
+                    <input type="text" placeholder="Name" required></input>
+                    <input type="text" placeholder="Card Number" required></input>
                 </form>
 
                 <div className="formatSideBySide">
-                <span className="exp">Expiration date</span>
+                <span className="exp" required>Expiration date</span>
                 <br></br>
                 <select className="dropDownMonth">
                 <option> -Month- </option>
@@ -31,7 +31,7 @@ const Checkout = () => {
                 <option> December </option>
                 </select>
 
-                <select className="dropDownYear">
+                <select className="dropDownYear" required>
                 <option> -Year- </option>
                 <option> 2023 </option>
                 <option> 2024 </option>
@@ -43,7 +43,7 @@ const Checkout = () => {
                 <option> 2030 </option>
                 </select>
 
-                <input className="cvv" type="text" placeholder="CVV"></input>
+                <input className="cvv" type="text" placeholder="CVV" required></input>
                 
                 </div>
             </div>
@@ -52,13 +52,13 @@ const Checkout = () => {
 
             <div className="billingField">
                 <form>
-                    <input type="text" placeholder="Street Address"></input>
+                    <input type="text" placeholder="Street Address" required></input>
                     
                     <div className="condense">
-                    <input className="city" type="text" placeholder="City"></input>
-                    <input className="state" type="text" placeholder="State"></input>
+                    <input className="city" type="text" placeholder="City" required></input>
+                    <input className="state" type="text" placeholder="State" required></input>
                     <br></br>
-                    <input className="zip" type="text" placeholder="Zip Code"></input>
+                    <input className="zip" type="text" placeholder="Zip Code" required></input>
                     </div>
                 </form>
             </div>
