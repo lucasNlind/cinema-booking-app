@@ -16,6 +16,7 @@ export {default as EditMovie} from './pages/admin/EditMovie';
 export {default as ManageMovies} from './pages/admin/ManageMovies';
 export {default as PricingPromo} from './pages/admin/PricingPromo';
 export {default as UserPortal} from './pages/admin/UserPortal';
+export {default as AddPromo} from './pages/admin/AddPromo';
 
 export {default as Login} from './pages/login/Login';
 export {default as ChangePassword} from './pages/login/ChangePassword';
