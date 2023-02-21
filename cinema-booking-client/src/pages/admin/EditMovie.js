@@ -32,7 +32,7 @@ const EditMovie = () => {
   }
 
   return (
-    <div className="edmovie">
+    <div className="editmovie">
       <h1 className="title">Movies</h1>
       <table>
         <thead>

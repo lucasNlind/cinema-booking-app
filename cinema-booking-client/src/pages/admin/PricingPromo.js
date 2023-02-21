@@ -5,13 +5,14 @@ const PricingPromo = () => {
     return (
         <div>
             
-            <div className="pricingprom">
+            <div className="pricingpromo">
                 <br></br>
                 <br></br>
                 <br></br>
                 <br></br>
                 <br></br>
 
+    <h1>Pricing</h1>
       <table>
         <tr>
           <th>Category</th>
@@ -21,30 +22,30 @@ const PricingPromo = () => {
         <tr>
           <td>Child Ticket</td>
           <td>$8.00</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>Adult Ticket</td>
           <td>$12.00</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>Senior Ticket</td>
           <td>$10.00</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>Booking Fee</td>
           <td>$3.65</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
       </table>
 
@@ -54,6 +55,7 @@ const PricingPromo = () => {
                 <br></br>
                 <br></br>
 
+    <h1>Promotions</h1>
       <table>
         <tr>
           <th>Promo Code</th>
@@ -63,30 +65,30 @@ const PricingPromo = () => {
         <tr>
           <td>CINE20</td>
           <td>20% off total</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>SORRY10</td>
           <td>10% off single ticket</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>WEDNIGHT</td>
           <td>50% off Wed night shows</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
         <tr>
           <td>ABEN</td>
           <td>bogo 50%</td>
-          <button className="times">Suspend</button>
-          <button className="times">Update</button>
-          <button className="times">Delete</button>
+          <button className="addBtn">Suspend</button>
+          <button className="addBtn">Update</button>
+          <button className="addBtn">Delete</button>
         </tr>
       </table>
 

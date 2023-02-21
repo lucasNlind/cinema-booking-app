@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
 .editmovie {
-  box-sizing: border-box;
-  color: #220f5f;
+  box-sizing: content-box;
+  color: #000000;
   font-family: 'Poppins', sans-serif;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .container {
   width: 100%;
-  max-width: 2000px;
-  padding: 0 10px;
-  margin: 0 auto;
+  max-width: 12000px;
+  padding: 10 10px;
   margin-top: 70px;
 }
 
@@ -21,8 +24,8 @@
 }
 
 table {
-  border-collapse: collapse;
-  max-width: 1200px;
+  border-collapse:collapse;
+  max-width: 12000px;
 }
 
 
@@ -43,7 +46,7 @@ input {
   font-size: 16px;
   background-color: transparent;
   border: none;
-  width: 91%;
+  width: 100%;
   padding: 12px 12px;
   font-family: 'Poppins', sans-serif;
 }

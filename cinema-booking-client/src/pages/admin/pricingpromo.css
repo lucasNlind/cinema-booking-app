@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -14,6 +15,7 @@
     border: 2px solid #fea680;
     width: 800px;
     height: 200px;
+    
   }
     
   th {
