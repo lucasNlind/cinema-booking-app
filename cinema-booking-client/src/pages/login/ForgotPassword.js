@@ -5,13 +5,7 @@ const ForgotPassword = () => {
     return (
 
         <div>
-                    <br></br> <br></br>
-                    <br></br> <br></br>
-        <div>
-            A link will be sent to the email associated with your account in order to reset your password. Click on the link in order to be redirected
-            to the website and update your password. 
-        </div>
-        <br></br> <br></br>
+                    
     <div  className="form">
       <form>
         <div className="input-container">

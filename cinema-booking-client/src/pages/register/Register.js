@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './register.css';
 
 const Register = () => {
@@ -31,6 +32,8 @@ const Register = () => {
           <label>Subscribe to Emails</label>
           <input type="checkbox" name="subscription" />
         </div>
+        <br></br>
+        <Link className="seatBtn" to="/addpayment">Add Payment Info</Link>
         <br></br>
         <div className="button-container">
           <input type="submit" />

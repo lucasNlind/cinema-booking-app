@@ -8,7 +8,7 @@ const Checkout = () => {
             <hr></hr>
             <div className="cardField">
                 <form>
-                    <input type="text" placeholder="Name" required></input>
+                    <input type="text" className="inputField" placeholder="Name" required></input>
                     <input type="text" placeholder="Card Number" required></input>
                 </form>
 
@@ -67,7 +67,7 @@ const Checkout = () => {
 
             <div className="promoField">
                 <form>
-                    <input type="text" placeholder="Promo Code"></input>
+                    <input className="inputField" type="text" placeholder="Promo Code"></input>
                 </form>
             </div>
 

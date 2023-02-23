@@ -16,9 +16,15 @@ const Login = () => {
           <label>Password </label>
           <input type="password" name="pass" required />
         </div>
+
+        <br></br><br></br>
+
         <div>
         <Link className="seatBtn" to="/forgotpassword">Forgot Password</Link>
         </div>
+
+        <br></br><br></br>
+
         <div className="button-container">
           <input type="submit" />
         </div>

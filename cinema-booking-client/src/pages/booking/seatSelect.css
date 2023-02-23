@@ -2,10 +2,19 @@
 .seatWrap {
     text-align: center;
     font-family: 'Cabin', arial;
+
 }
 
 .seatingTable {
     text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.screenImg {
+    background-color: #76777c;
+    text-align: center;
+
 }
 
 .tableSeats {
@@ -14,6 +23,10 @@
     margin-left: auto;
     margin-right: auto;
     
+}
+
+.seatRow {
+    border: 0;
 }
 
 th {
@@ -26,7 +39,7 @@ th {
 }
 
 
-.seatBtn {
+.seatChoiceBtn {
     padding: 20px;
     border-radius: 5px;
     border: none;
@@ -45,6 +58,7 @@ button:hover {
     background-color: #FEA680;
     border-radius: 4px;
     color: black;
+
 }
 
 .orderBtn:hover {
@@ -54,4 +68,6 @@ button:hover {
 .buttonCenter {
     margin-top: 50px;
     text-align: center;
+    display: inline-block;
+    flex-direction: column;
 }
