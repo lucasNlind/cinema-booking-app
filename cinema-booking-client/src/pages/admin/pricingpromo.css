@@ -1,31 +1,42 @@
-.pricingpromo {
+.pricing-promo-wrap {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-    
-  html {
-    background-color: #eee0cc;
 }
 
-  table {
+.promo-tables {
     border: 2px solid #fea680;
     width: 800px;
     height: 200px;
-    
-  }
-    
-  th {
-    border-bottom: 1px solid black;
-  }
-    
-  tr {
-      text-align: center;
-  }
-
-  td {
     text-align: center;
-  }
+}
+    
+.promo-th {
+    border-bottom: 1px solid black;
+}
+    
+.promo-row {
+      text-align: center;
+}
+
+.price-btns {
+  margin: 10px;
+  padding: 5px;
+  text-decoration: none;
+  background-color: #FEA680;
+  border-radius: 4px;
+  color: black;
+}
+
+.add-promo-btn {
+  text-align: center;
+  width: 100px;
+  padding: 10px 5px 10px 5px;
+  text-decoration: none;
+  background-color: #FEA680;
+  border-radius: 4px;
+  color: black;
+}

@@ -1,24 +1,23 @@
-
-.orderWrap {
+.order-wrap {
     text-align: center;
     font-family: 'Cabin', arial;
 }
 
-.orderSummary {
+.order-summary {
     font-size: 20px;
 }
 
-.ticketTotal {
+.ticket-total {
     margin-top: 10px;
 }
 
-.updateOrder {
+.update-order {
     margin-top: 50px;
     display: inline-flex;
     flex-direction: column;
 }
 
-.updateBtn {
+.update-btn {
     margin-bottom: 10px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
@@ -26,19 +25,14 @@
     border-radius: 4px;
     color: black;
 }
-.updateBtn:hover {
+
+.update-btn:hover {
     background-color: #ff9669;
 }
 
-.ticketTable {
+.ticket-tables {
     border: 1px solid;
     margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.feeTable {
-    border: 1px solid;
     margin-left: auto;
     margin-right: auto;
 }

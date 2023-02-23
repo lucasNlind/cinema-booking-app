@@ -1,33 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import MovieCarousel from '../../components/header/MovieCarousel';
 import MoviesList from '../../components/movieList/MoviesList';
 import './home.css';
 
+// This is the home page component that displays the Movie Carousel, Now Playing,
+// Coming Soon, and search bar
 const Home = () => {
     return (
-        <div className="homepg">
+        <div className="home-wrap">
+
             <div className="header">
                 <MovieCarousel />
             </div>
 
-            <div className="searchBar"><input className="search" type="text" placeholder="Search..."/>
-            <button className="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div className="search-block">
+                <input className="search-bar" type="text" placeholder="Search..."/>
+                <button className="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             
-        <h1 className="nowPlaying"><span>Now Playing</span></h1>
-            <div className="nowPlayingWrap">
+            <h1 className="movie-title"><span>Now Playing</span></h1>
+
+            <div className="list-titles">
                 <MoviesList />
             </div>
 
-        <h1 className="comingSoon"><span>Coming Soon</span></h1>
-            <div className="comingSoonWrap">
+            <h1 className="movie-title"><span>Coming Soon</span></h1>
+
+            <div className="list-titles">
                 <MoviesList />
             </div>
 
         </div>
-
-        
     );
 };
 

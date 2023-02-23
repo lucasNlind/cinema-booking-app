@@ -2,16 +2,19 @@ import React from 'react';
 import './orderSummary.css'
 import { Link } from 'react-router-dom';
 
+//This is the component for summary of tickets, it is currently hard coded for the demo
+// This shows order total and the buttons to edit order / go back through the user's order
+// NEEDS TO SAVE THE DATA IN THE FIELDS IF YOU GO BACK IN THE ORDER (TA stated)
 const OrderSummary = () => {
     return (
-        <div className="orderWrap">
-            <h1 className="orderTitle">Order Summary</h1>
-            <hr></hr>
+        <div className="order-wrap">
+            <h1 className="order-title">Order Summary</h1>
+            <hr className="line-break"></hr>
 
-            <div className="orderSummary">
+            <div className="order-summary">
                 Name of the Movie
-                <div className="ticketTotal">
-                    <table className="ticketTable">
+                <div className="ticket-total">
+                    <table className="ticket-tables">
                         <tr>
                             <th>Ticket Type</th>
                             <th>Price</th>
@@ -26,7 +29,7 @@ const OrderSummary = () => {
                         </tr>
                     </table>
 
-                    <table className="feeTable">
+                    <table className="ticket-tables">
                         <tr>
                             <th>Fee Type</th>
                             <th>Cost</th>
@@ -40,17 +43,16 @@ const OrderSummary = () => {
                             <td>$1.57</td>
                         </tr>
                     </table>
+                    
                     <br></br>
                     Order Total = $27.57
                 </div>
             </div>
 
-            <div className="updateOrder">
-            <Link className="updateBtn" to="/ticketselect">Change Tickets</Link>
-
-            <Link className="updateBtn" to="/single">Update Order</Link>
-
-            <Link className="updateBtn" to="/checkout">Checkout</Link>
+            <div className="update-order">
+                <Link className="update-btn" to="/ticketselect">Change Tickets</Link>
+                <Link className="update-btn" to="/single">Update Order</Link>
+                <Link className="update-btn" to="/checkout">Checkout</Link>
             </div>
         </div>
     );

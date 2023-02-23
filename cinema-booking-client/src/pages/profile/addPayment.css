@@ -1,11 +1,10 @@
 
-.addPayWrap {
+.add-pay-wrap {
     text-align: center;
     font-family: 'Cabin', arial;
 }
 
-.inputField {
-    font-family: 'Cabin', arial;
+.input-field {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -17,7 +16,7 @@
     background-color: #f5d19e;
 }
 
-.formatSideBySide {
+.format-side-by-side {
     margin-top: 10px;
     margin-right: 20px;
     align-content: center;
@@ -27,71 +26,51 @@
     margin-right: 180px;
 }
 
-.dropDownMonth {
+.dropdown-dates {
     background-color: #f5d19e;
     width: 100px;
     height: 30px;
-    margin-right: 10px;
-    
+    margin-right: 10px;    
 }
 
-.dropDownYear {
+.mod {
+    font-size: large;
+    border-radius: 5px;
     background-color: #f5d19e;
-    width: 80px;
-    height: 30px;
-    
+    border-bottom: 5px;
 }
 
 .cvv {
-    font-family: 'Cabin', arial;
     margin-top: 10px;
     margin-left: 30px;
     width: 60px;
     height: 30px;
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
     text-align: center;
 }
 
 .city {
-    font-family: 'Cabin', arial;
     margin-right: 12px;
     margin-top: 5px;
-    margin-bottom: 5px;
     width: 200px;
     height: 30px;
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
 }
 
 .state {
-    font-family: 'Cabin', arial;
     margin-top: 5px;
-    margin-bottom: 5px;
     width: 60px;
     height: 30px;
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
     text-align: center;
 }
 
 .zip {
-    font-family: 'Cabin', arial;
     margin-right: 180px;
     margin-top: 5px;
-    margin-bottom: 5px;
     width: 120px;
     height: 30px;
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
     text-align: center;
 }
 
-.addBtn {
+.add-btn {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
@@ -100,6 +79,6 @@
     color: black;
 }
 
-.buttonWrap {
+.button-wrap {
     margin-top: 50px;
 }

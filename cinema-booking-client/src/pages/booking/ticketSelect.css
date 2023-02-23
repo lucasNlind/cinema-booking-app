@@ -1,17 +1,16 @@
-.ticketWrap {
+.ticket-wrap {
     font-family: 'Cabin', arial;
     background-color: #eee0cc;
     text-align: center;
 }
 
-.ticketTitle {
+.ticket-title {
     padding: 30px 40px;
     text-align: center;
     margin: 0;
-
 }
 
-hr {
+.line-break {
     border: none;
     border-top: 3px double #333;
     color: #333;
@@ -20,14 +19,13 @@ hr {
     height: 5px;
 }
 
-
-.ticketDrops {
+.ticket-drops {
     text-align: center;
     margin-left: 20px;
     margin-bottom: 40px;
 }
 
-.dropDown {
+.dropdown {
     margin-left: 30px;
     margin-top: 20px; 
     background-color: #f5d19e;
@@ -37,7 +35,12 @@ hr {
     border-radius: 5px;
 }
 
-.seatBtn {
+.button-align {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.seat-btn {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
@@ -46,11 +49,6 @@ hr {
     color: black;
 }
 
-.seatBtn:hover {
+.seat-btn:hover {
     background-color: #ff9669;
-}
-
-.buttonAlign {
-    display: inline-flex;
-    flex-direction: column;
 }

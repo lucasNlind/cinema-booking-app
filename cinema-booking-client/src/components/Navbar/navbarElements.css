@@ -6,13 +6,10 @@
     list-style: none;
     background-color: #FBD266;
     font-family: 'Cabin', arial;
-
 }
 
 .navflex li {
-
     text-decoration: none;
-
 }
 
 .navflex li:hover {

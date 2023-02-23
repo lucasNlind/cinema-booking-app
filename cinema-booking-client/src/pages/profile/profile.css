@@ -1,13 +1,13 @@
-.profileWrap {
+.profile-wrap {
     font-family: 'Cabin', arial;
     text-align: center;
 }
 
-.buttonCenter {
+.profile-center {
     display: inline-flex;
     flex-direction: column;
 }
-.profileBtn {
+.profile-btn {
     width: 150px;
     padding: 10px 5px 10px 5px;
     margin-bottom: 10px;

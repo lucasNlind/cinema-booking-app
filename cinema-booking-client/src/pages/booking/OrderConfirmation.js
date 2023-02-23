@@ -1,18 +1,23 @@
 import './orderConfirmation.css';
 import { Link } from 'react-router-dom';
 
+
+//This is the order confirmation component with the totals, and sends the email for confirmation
 const OrderConfirmation = () => {
     return (
-        <div className="confirmWrap">
+        <div className="confirm-wrap">
+
             <h1>Purchase Completed!</h1>
-            <hr></hr>
+
+            <hr className="line-break"></hr>
+
             {/**This is all hard coded at the moment but it will be better once we have the db */}
 
-            <div className="orderSummary">
+            <div className="order-summary">
                 Booking Number: #1000
                 <br></br>
                 Name of the Movie
-                <div className="ticketTotal">
+                <div className="ticket-total">
                     2 x Adult Tickets - $24.00
                     <br></br>
                     Online Booking Fee - $2.00
@@ -23,11 +28,11 @@ const OrderConfirmation = () => {
                 </div>
             </div>
 
-            <div className="emailSent">
+            <div className="email-sent">
                 A confirmation email for this purchase has been sent to:
             </div>
 
-            <Link className="homeBtn" to="/">Home</Link>
+            <Link className="home-btn" to="/">Home</Link>
         </div>
     );
 };

@@ -13,7 +13,6 @@ export {default as PreviewMovie} from './pages/previewMovie/PreviewMovie';
 export {default as AdminHome} from './pages/admin/AdminHome';
 export {default as AddMovie} from './pages/admin/AddMovie';
 export {default as EditMovie} from './pages/admin/EditMovie';
-export {default as ManageMovies} from './pages/admin/ManageMovies';
 export {default as PricingPromo} from './pages/admin/PricingPromo';
 export {default as UserPortal} from './pages/admin/UserPortal';
 export {default as AddPromo} from './pages/admin/AddPromo';

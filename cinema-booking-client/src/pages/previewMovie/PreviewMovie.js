@@ -3,10 +3,9 @@ import PreviewInfo from '../../components/previewInfo/PreviewInfo';
 
 function PreviewMovie() {
     return (
-        <div className="singleMoviePreview">
+        <div className="single-movie-preview">
             <PreviewInfo />
         </div>
-
     );
 }
 

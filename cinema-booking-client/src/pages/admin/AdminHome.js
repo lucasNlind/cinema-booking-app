@@ -6,17 +6,17 @@ const AdminHome = () => {
     return (
 
         
-        <div className='adminhome'>
+        <div className='admin-home'>
 
             <h1>Admin Home</h1>
             <hr></hr>
-            <div className="buttonCenter">
+            <div className="button-center">
             <br></br>
-            <Link className="seatBtn" to="/editmovie">Manage Movies</Link>
+            <Link className="admin-home-btn" to="/editmovie">Manage Movies</Link>
             <br></br><br></br><br></br><br></br><br></br><br></br>
-            <Link className="seatBtn" to="/pricingpromo">Manage Promotions and Pricing</Link>
+            <Link className="admin-home-btn" to="/pricingpromo">Manage Promotions and Pricing</Link>
             <br></br><br></br><br></br><br></br><br></br><br></br>
-            <Link className="seatBtn" to="/userportal">Manage Users</Link>
+            <Link className="admin-home-btn" to="/userportal">Manage Users</Link>
             </div>
 
 

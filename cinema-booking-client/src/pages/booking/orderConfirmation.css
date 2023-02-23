@@ -1,14 +1,15 @@
 
-.confirmWrap {
+.confirm-wrap {
     text-align: center;
     font-family: 'Cabin', arial;
 }
 
-.emailSent{
+.email-sent{
     margin-top: 10px;
     margin-bottom: 20px;
 }
-.homeBtn {
+
+.home-btn {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;

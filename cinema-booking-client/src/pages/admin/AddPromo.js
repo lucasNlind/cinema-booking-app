@@ -1,29 +1,28 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './addpromo.css';
 
+//for discount offered, may be easier to do dropdown of percentages off?
 const AddPromo = () => {
-    return (
+    return (    
+    <div  className="add-promo-wrap">
+        <form>
+            <div className="promo-input">
+                <label>Promo Code</label>
+                <input type="text" name="title" required />
+            </div>
 
-        <div>
-            
-    <div  className="form">
-      <form>
-        <div className="input-container">
-          <label>Promo Code</label>
-          <input type="text" name="title" required />
-        </div>
-        <div className="input-container">
-          <label>Discount Offered</label>
-          <input type="text" name="category" required />
-        </div>
-        <br></br>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
+            <div className="promo-input">
+                <label>Discount Offered</label>
+                <input type="text" name="category" required />
+            </div>
+
+            <br></br>
+
+            <div className="button-container">
+                <Link className="submit-promo-btn" to="/pricingpromo">Submit</Link>
+            </div>
+        </form>
     </div>
-
-        </div>
     );
 };
 

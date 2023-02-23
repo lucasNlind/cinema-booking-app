@@ -1,29 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './login.css';
+import './changePassword.css';
 
+//Change password to something new in the DB. Needs a button to return to the edit page
 const ChangePassword = () => {
     return (
-        <div>
-            
-    <div className="form">
-      <form>
+    <div className="change-pw-wrap">
+        <form>
         
-        <div className="input-container">
-          <label>New Password</label>
-          <input type="password" name="newPass" required />
+        <div className="password-container">
+            <label>New Password</label>
+            <input type="password" name="newPass" required />
         </div>
-        <div className="input-container">
-          <label>Type Password Again</label>
-          <input type="password" name="resetPassCheck" required />
+
+        <div className="password-container">
+            <label>Type Password Again</label>
+            <input type="password" name="resetPassCheck" required />
         </div>
        
-      </form>
+        </form>
     </div>
-
-            
-
-        </div>
     );
 };
 

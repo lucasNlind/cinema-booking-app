@@ -3,7 +3,7 @@ import MovieInfo from '../movie/MovieInfo';
 
 function MoviesList() {
     return (
-        <div className="movieList">
+        <div className="movie-list">
             <MovieInfo />
             <MovieInfo />
             <MovieInfo />

@@ -1,23 +1,23 @@
 
-.seatWrap {
+.seat-wrap {
     text-align: center;
     font-family: 'Cabin', arial;
 
 }
 
-.seatingTable {
+.seating-table {
     text-align: center;
     display: inline-flex;
     flex-direction: column;
 }
 
-.screenImg {
+.screen-img {
     background-color: #76777c;
     text-align: center;
 
 }
 
-.tableSeats {
+.table-seats {
     border-spacing: 10px;
     border: 0;
     margin-left: auto;
@@ -25,21 +25,16 @@
     
 }
 
-.seatRow {
+.seat-row {
     border: 0;
 }
 
-th {
-    background-color: rgb(143, 141, 137);
-    height: 20px;
-}
-
-.spaceFromScreen {
+.space-from-screen {
     height: 100px;
 }
 
 
-.seatChoiceBtn {
+.seat-choice-btn {
     padding: 20px;
     border-radius: 5px;
     border: none;
@@ -47,11 +42,11 @@ th {
     background-color: #89c4b7;
 }
 
-button:hover {
+.seat-choice-btn:hover {
     background-color: #80f1d1;
 }
 
-.orderBtn {
+.order-btn {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
@@ -61,11 +56,11 @@ button:hover {
 
 }
 
-.orderBtn:hover {
+.order-btn:hover {
     background-color: #ff9669;
 }
 
-.buttonCenter {
+.button-center {
     margin-top: 50px;
     text-align: center;
     display: inline-block;
