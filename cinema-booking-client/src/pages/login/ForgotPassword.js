@@ -1,3 +1,23 @@
-//needs the link from the login page
-//same thing as RegisterEmail page but has a field to enter your email
-//the email will link to the page /newpassword for the specific user
+import React from 'react';
+import './forgotpassword.css';
+
+const ForgotPassword = () => {
+    return (
+    <div  className="forgot-pw-wrap">
+        <form>
+        <div className="input-container">
+            <label>Enter Email</label>
+            <input type="text" name="title" required />
+        </div>
+
+        <br></br>
+
+        <div className="button-container">
+            <input type="submit" />
+        </div>
+        </form>
+    </div>
+    );
+};
+
+export default ForgotPassword;

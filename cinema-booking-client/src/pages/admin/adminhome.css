@@ -1,0 +1,16 @@
+.admin-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Cabin', arial;
+}
+
+.admin-home-btn {
+  width: 100px;
+  padding: 10px 5px 10px 5px;
+  text-decoration: none;
+  background-color: #FEA680;
+  border-radius: 4px;
+  color: black;
+}

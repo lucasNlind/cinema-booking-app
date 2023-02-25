@@ -4,18 +4,16 @@
     display: flex;
     justify-content: flex-end;
     list-style: none;
-    background-color: #0A2647;
-
+    background-color: #FBD266;
+    font-family: 'Cabin', arial;
 }
 
 .navflex li {
-
     text-decoration: none;
-
 }
 
 .navflex li:hover {
-    background-color: #144272;
+    background-color: #ffda7d;
 }
 
 .navflex a {
@@ -24,6 +22,6 @@
     padding: 1em;
     margin-left: 1em;
     margin-right: 1em;
-    color: aliceblue;
+    color: black;
     font-size: large;
 }

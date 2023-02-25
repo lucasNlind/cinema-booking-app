@@ -1,0 +1,18 @@
+.profile-wrap {
+    font-family: 'Cabin', arial;
+    text-align: center;
+}
+
+.profile-center {
+    display: inline-flex;
+    flex-direction: column;
+}
+.profile-btn {
+    width: 150px;
+    padding: 10px 5px 10px 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    background-color: #FEA680;
+    border-radius: 4px;
+    color: black;
+}

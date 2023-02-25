@@ -1,13 +1,10 @@
-import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Routes} from 'react-router-dom';
-import Navbar from './components/navbar/NavbarElements';
-import Home from './pages/home/Home';
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
-{/* ADD this once we start on the profile pages
-import Profile from './pages/profile/Profile';
-import
-*/}
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Home, PreviewMovie, Navbar, AdminHome, AddMovie, EditMovie, AddPromo, PricingPromo, UserPortal, ChangePassword, ForgotPassword,
+  Login, Profile, AddPayment, Register, RegisterConfirmation, RegisterEmail, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
+/* These are the imported components from the index.js file so it is neater in the App.js file*/
+
+
 
 function App() {
   return (
@@ -15,14 +12,33 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path='/' element={<Home />} />
+
+{/*This single page is hard coded at the moment for the demo, since the db isn't set up */}
+        <Route path="/single" element={<PreviewMovie />} />
+
+        <Route path='/adminhome' element={<AdminHome />} />
+        <Route path='/addmovie' element={<AddMovie />} />
+        <Route path='/editmovie' element={<EditMovie />} />
+        <Route path='/pricingpromo' element={<PricingPromo />} />
+        <Route path='/addpromo' element={<AddPromo />} />
+        <Route path='/userportal' element={<UserPortal />} />
+
+        <Route path='/changepassword' element={<ChangePassword />} />
+        <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/login' element={<Login />} />
+
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/addpayment' element={<AddPayment />} />
+
         <Route path='/register' element={<Register />} />
-  {/*   <Route path='/profile' element={<Profile />} />
-        This is the navigation bar at the top of the page, we will
-        have to set it up later on how to swap the login page with
-        the profile page later / remove the registered page once you
-        sign in. 
-  */}
+        <Route path='/registerconfirmation' element={<RegisterConfirmation />} />
+        <Route path='/registeremail' element={<RegisterEmail />} />
+
+        <Route path='/seatselect' element={<SeatSelect />} />
+        <Route path='/ticketselect' element={<TicketSelect />} />
+        <Route path='/ordersummary' element={<OrderSummary />} />
+        <Route path='/checkout' element={<Checkout />} /> 
+        <Route path='/orderconfirmation' element={<OrderConfirmation />} />
       </Routes>
     </Router>
   

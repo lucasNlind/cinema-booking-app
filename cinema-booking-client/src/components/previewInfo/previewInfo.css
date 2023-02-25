@@ -1,0 +1,31 @@
+.single-movie-wrap {
+    padding: 10px;
+    background-color: #eee0cc;
+    flex: 9;
+    font-family: 'Cabin', arial;
+}
+
+.single-movie-img {
+    margin-right: 30px;
+    height: 400px;
+}
+
+.header-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.times {
+    margin: 10px;
+    width: 70px;
+    padding: 5px;
+    text-decoration: none;
+    background-color: #FEA680;
+    border-radius: 4px;
+    color: black;
+}
+
+.times:hover {
+    background-color: #ff9669;
+}

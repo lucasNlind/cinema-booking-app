@@ -1,0 +1,36 @@
+.login-wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+  
+input[type="text"], input[type="password"] {
+    height: 25px;
+}
+  
+input[type="submit"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    background: #fea680;
+    color: #fff;
+    padding: 10px 10px;
+}
+  
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+  
+.title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+  
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
