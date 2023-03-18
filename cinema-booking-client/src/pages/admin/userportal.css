@@ -4,19 +4,24 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .times-users {    
     margin: 10px;
     padding: 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
 }
 
+.times-users:hover {
+    background-color: #ACBAC2;
+}
+
 .user-table {
-    border: 2px solid #fea680;
+    border: 2px solid #9AC7FE;
     width: 800px;
     height: 200px;
     text-align: center;
@@ -37,7 +42,11 @@
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
+  }
+
+  .home-button:hover {
+    background-color: #ACBAC2;
   }

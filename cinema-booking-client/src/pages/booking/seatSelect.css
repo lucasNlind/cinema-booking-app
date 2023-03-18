@@ -1,8 +1,7 @@
 
 .seat-wrap {
     text-align: center;
-    font-family: 'Cabin', arial;
-
+    font-family: 'PT Sans', sans-serif;
 }
 
 .seating-table {
@@ -39,25 +38,25 @@
     border-radius: 5px;
     border: none;
     background: none;
-    background-color: #89c4b7;
+    background-color: #9AC7FE;
 }
 
 .seat-choice-btn:hover {
-    background-color: #80f1d1;
+    background-color: #5B8DC0;
 }
 
 .order-btn {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
 
 }
 
 .order-btn:hover {
-    background-color: #ff9669;
+    background-color: #ACBAC2;
 }
 
 .button-center {

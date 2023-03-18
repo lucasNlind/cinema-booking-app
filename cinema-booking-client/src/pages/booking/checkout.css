@@ -1,77 +1,14 @@
+/**addPayment has the css for the form fields, it just steals from that page
+if you need to edit the fields, take into account it will change both*/
+
 .checkout-wrap {
     text-align: center;
-    font-family: 'Cabin', arial;
+    font-family: 'PT Sans', sans-serif;
 }
 
 form {
     display: flex;
     flex-direction: column;
-}
-
-.input-field {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 300px;
-    height: 30px;
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
-}
-
-.format-side-by-side {
-    margin-top: 10px;
-    margin-right: 20px;
-    align-content: center;
-}
-
-.exp {
-    margin-right: 180px;
-}
-
-.dropdown-dates {
-    background-color: #f5d19e;
-    width: 100px;
-    height: 30px;
-    margin-right: 10px;    
-}
-
-.mod {
-    font-size: large;
-    border-radius: 5px;
-    background-color: #f5d19e;
-    border-bottom: 5px;
-}
-
-.cvv {
-    margin-top: 10px;
-    margin-left: 30px;
-    width: 60px;
-    height: 30px;
-    text-align: center;
-}
-
-.city {
-    margin-right: 12px;
-    margin-top: 5px;
-    width: 200px;
-    height: 30px;
-}
-
-.state {
-    margin-top: 5px;
-    width: 60px;
-    height: 30px;
-    text-align: center;
-}
-
-.zip {
-    margin-right: 180px;
-    margin-top: 5px;
-    width: 120px;
-    height: 30px;
-    text-align: center;
 }
 
 .btn-center {
@@ -83,7 +20,11 @@ form {
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
+}
+
+.confirm-btn:hover {
+    background-color: #ACBAC2;
 }

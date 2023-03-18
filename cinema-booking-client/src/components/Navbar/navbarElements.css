@@ -4,16 +4,37 @@
     display: flex;
     justify-content: flex-end;
     list-style: none;
-    background-color: #FBD266;
-    font-family: 'Cabin', arial;
+    background-color: #496A81;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.5);
+    margin-bottom: 10px;
+}
+
+.nav-logo {
+    height: 70px;
+    width: 60px;
+}
+
+.nav-title {
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 10px;
+    color: #f9f7f3;
+}
+
+/** This ensures that the logo and title are to the left*/
+.divider {
+    margin-inline-start: auto;
 }
 
 .navflex li {
     text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .navflex li:hover {
-    background-color: #ffda7d;
+    background-color: #5F7C90;
 }
 
 .navflex a {
@@ -22,6 +43,6 @@
     padding: 1em;
     margin-left: 1em;
     margin-right: 1em;
-    color: black;
-    font-size: large;
+    color: #f9f7f3;
+    font-size: 18px;
 }

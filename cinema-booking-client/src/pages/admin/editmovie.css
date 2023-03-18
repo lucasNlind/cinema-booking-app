@@ -3,7 +3,7 @@
 .edit-movie {
   box-sizing: content-box;
   color: #000000;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,7 @@
   padding: 12px;
   border: 1px solid #eeeeee;
   text-align: left;
-  background-color: rgb(214, 207, 107);
+  background-color: #9AC7FE;
 }
 
 .edit-input {
@@ -42,7 +42,7 @@
   border: none;
   width: 100%;
   padding: 12px 12px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .edit-input:hover {
@@ -65,7 +65,11 @@
   width: 100px;
   padding: 10px 5px 10px 5px;
   text-decoration: none;
-  background-color: #FEA680;
+  background-color: #738C9D;
   border-radius: 4px;
   color: black;
+}
+
+.add-movie-btn:hover {
+  background-color: #ACBAC2;
 }
