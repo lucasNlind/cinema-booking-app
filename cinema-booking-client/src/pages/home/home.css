@@ -1,15 +1,14 @@
 
 /*Temp background color for all pages*/
 html {
-        background-color: #eee0cc;
+        background-color: #f9f7f3;
 }
 
 .home-wrap {
         text-align: center;
         justify-content: center;
-        background-color: #eee0cc;
         background-size: cover;
-        font-family: 'Cabin', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         color: black;
         display: flex;
         flex-direction: column; 
@@ -28,7 +27,6 @@ html {
         height: 30px;
         font-size: large;
         border-radius: 5px;
-        background-color: #f5d19e;
         margin-right: 5px;
 }
 
@@ -36,12 +34,12 @@ html {
         border: none;
         padding: 10px 10px;
         cursor: pointer;
-        background-color: #f5d19e;
+        background-color: #496A81;
         border-radius: 5px;
 }
 
 .search-btn:hover {
-        background-color: #f7ca8b;
+        background-color: #5F7C90;
 }
 
 .list-titles {
@@ -58,6 +56,6 @@ html {
 
 /* Makes the background behind the words the same as the background of the page*/
 h1 span {
-        background:#eee0cc; 
+        background:#f9f7f3; 
         padding:0 10px; 
 }

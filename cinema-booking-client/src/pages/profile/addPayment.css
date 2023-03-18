@@ -1,7 +1,8 @@
-
+/**This css effects both the addPayment and the checkout.css payment fields, check both
+   to make sure that it looks correct on BOTH pages*/
 .add-pay-wrap {
     text-align: center;
-    font-family: 'Cabin', arial;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .input-field {
@@ -13,7 +14,6 @@
     height: 30px;
     font-size: large;
     border-radius: 5px;
-    background-color: #f5d19e;
 }
 
 .format-side-by-side {
@@ -27,7 +27,6 @@
 }
 
 .dropdown-dates {
-    background-color: #f5d19e;
     width: 100px;
     height: 30px;
     margin-right: 10px;    
@@ -36,28 +35,27 @@
 .mod {
     font-size: large;
     border-radius: 5px;
-    background-color: #f5d19e;
     border-bottom: 5px;
 }
 
 .cvv {
     margin-top: 10px;
-    margin-left: 30px;
     width: 60px;
     height: 30px;
     text-align: center;
 }
 
 .city {
-    margin-right: 12px;
+    margin-right: 10px;
     margin-top: 5px;
-    width: 200px;
+    margin-bottom: 5px;
+    width: 230px;
     height: 30px;
 }
 
 .state {
     margin-top: 5px;
-    width: 60px;
+    width: 55px;
     height: 30px;
     text-align: center;
 }
@@ -74,9 +72,13 @@
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
+}
+
+.add-btn:hover {
+    background-color: #ACBAC2;
 }
 
 .button-wrap {

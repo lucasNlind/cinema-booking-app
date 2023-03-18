@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: 'Open Sans', sans-serif;
 }
   
 input[type="text"], input[type="password"] {
@@ -14,8 +14,7 @@ input[type="submit"] {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 15px;
-    background: #fea680;
-    color: #fff;
+    background: #738C9D;
     padding: 10px 10px;
 }
   

@@ -1,7 +1,7 @@
 
 .confirm-wrap {
     text-align: center;
-    font-family: 'Cabin', arial;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .email-sent{
@@ -13,7 +13,11 @@
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
+}
+
+.home-btn:hover {
+    background-color: #ACBAC2;
 }
