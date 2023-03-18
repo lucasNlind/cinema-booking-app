@@ -5,10 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .promo-tables {
-    border: 2px solid #fea680;
+    border: 2px solid #9AC7FE;
     width: 800px;
     height: 200px;
     text-align: center;
@@ -26,9 +27,13 @@
   margin: 10px;
   padding: 5px;
   text-decoration: none;
-  background-color: #FEA680;
+  background-color: #738C9D;
   border-radius: 4px;
   color: black;
+}
+
+.price-btns:hover {
+  background-color: #ACBAC2;
 }
 
 .add-promo-btn {
@@ -36,7 +41,11 @@
   width: 100px;
   padding: 10px 5px 10px 5px;
   text-decoration: none;
-  background-color: #FEA680;
+  background-color: #738C9D;
   border-radius: 4px;
   color: black;
+}
+
+.add-promo-btn:hover {
+  background-color: #ACBAC2;
 }

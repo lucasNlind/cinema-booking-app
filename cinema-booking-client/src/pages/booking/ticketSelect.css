@@ -1,6 +1,5 @@
 .ticket-wrap {
-    font-family: 'Cabin', arial;
-    background-color: #eee0cc;
+    font-family: 'PT Sans', sans-serif;
     text-align: center;
 }
 
@@ -28,7 +27,7 @@
 .dropdown {
     margin-left: 30px;
     margin-top: 20px; 
-    background-color: #f5d19e;
+    background-color: #ACBAC2;
     width: 40px;
     height: 30px;
     font-size: 15px;
@@ -44,11 +43,11 @@
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
 }
 
 .seat-btn:hover {
-    background-color: #ff9669;
+    background-color: #ACBAC2;
 }

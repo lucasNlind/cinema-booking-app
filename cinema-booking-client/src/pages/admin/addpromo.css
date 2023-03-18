@@ -1,6 +1,6 @@
 .add-promo-wrap {
     box-sizing: content-box;
-    font-family: 'Cabin', arial;
+    font-family: 'Open Sans', sans-serif;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,11 @@
     width: 100px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
+}
+
+.submit-promo-btn:hover {
+    background-color: #ACBAC2;
 }

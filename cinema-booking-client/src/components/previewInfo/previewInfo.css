@@ -1,13 +1,20 @@
 .single-movie-wrap {
     padding: 10px;
-    background-color: #eee0cc;
     flex: 9;
-    font-family: 'Cabin', arial;
 }
 
 .single-movie-img {
     margin-right: 30px;
     height: 400px;
+}
+
+.single-movie-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.movie-info {
+    font-family: 'PT Sans', sans-serif;
 }
 
 .header-preview {
@@ -16,16 +23,20 @@
     align-items: center;
 }
 
+.ticket-booking {
+    font-family: 'PT Sans', sans-serif;
+}
+
 .times {
     margin: 10px;
     width: 70px;
     padding: 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
 }
 
 .times:hover {
-    background-color: #ff9669;
+    background-color: #ACBAC2;
 }

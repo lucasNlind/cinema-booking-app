@@ -1,6 +1,6 @@
 .order-wrap {
     text-align: center;
-    font-family: 'Cabin', arial;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .order-summary {
@@ -21,13 +21,13 @@
     margin-bottom: 10px;
     padding: 10px 5px 10px 5px;
     text-decoration: none;
-    background-color: #FEA680;
+    background-color: #738C9D;
     border-radius: 4px;
     color: black;
 }
 
 .update-btn:hover {
-    background-color: #ff9669;
+    background-color: #ACBAC2;
 }
 
 .ticket-tables {

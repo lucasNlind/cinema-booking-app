@@ -21,13 +21,13 @@
     padding: 10px 5px 10px 5px;
     text-decoration: none;
     margin: auto;
-    background-color: #FEA680;
+    background-color: #5F7C90;
     border-radius: 4px;
     color: black;
 }
 
 .book-btn:hover {
-    background-color: #ff9669;
+    background-color: #738C9D;
 }
 
 .book-btn:visited, .bookBtn:active {
