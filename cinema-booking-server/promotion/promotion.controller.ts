@@ -5,14 +5,14 @@ import { PromotionService } from './promotion.service';
 @Controller('promotion')
 export class PromotionController {
 
-    constructor(private PromotionService: PromotionService) {}
+    constructor(private promotionService: PromotionService) {}
 
     @Post()
     postPromotion(
         @Body('promotionCode') promotionCode: string,
         @Body('discountPercentage') discountPercentage: number
     ): Promise<PromotionDocument> {
-        return this.PromotionService.create(
+        return this.promotionService.create(
             promotionCode,
             discountPercentage
         );
