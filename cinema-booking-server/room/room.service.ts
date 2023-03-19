@@ -7,7 +7,21 @@ import { RoomDocument } from './room.schema';
 export class RoomService {
 
     constructor(
-        @InjectModel(Room)
-        private readonly RoomModel: Model<> 
-    )
+        @InjectModel('Room')
+        private readonly RoomModel: Model<RoomDocument> 
+    ) {}
+
+    async create (
+        roomName: string,
+        capacity: number
+    ): Promise<RoomDocument> {
+
+        const newRoom = new this.RoomModel({
+            roomName,
+            capacity
+        })
+
+        return newRoom.save();
+    }
+
 }

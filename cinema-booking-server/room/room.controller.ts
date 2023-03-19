@@ -1,4 +1,4 @@
-import { Body, Controller, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
 import { RoomDocument } from './room.schema';
 import { RoomService } from './room.service';
 
@@ -17,5 +17,5 @@ export class RoomController {
             capacity
         );
     }
-    
+
 }
