@@ -4,7 +4,11 @@ import './register.css';
 const Register = () => {
     return (
     <div className="register-wrap">
-        <form>
+
+        <h1 className="enter-pay-title">Registration</h1>
+        <hr className="line-break"></hr>
+
+        <div className="register-fields">
         <div className="input-container">
             <label>Full Name </label>
             <input type="text" name="fname" required />
@@ -37,14 +41,15 @@ const Register = () => {
 
         <br></br>
 
-        <Link className="seatBtn" to="/addpayment">Add Payment Info</Link>
+        <Link className="register-pay-info" to="/addpayment">Add Payment Info</Link>
 
         <br></br>
 
         <div className="button-container">
-            <input type="submit" />
+            <input className="register-pay-info" type="submit" />
         </div>
-        </form>
+
+        </div>
     </div>
     );
 };

@@ -9,8 +9,8 @@ const NavbarElements= () =>{
         <div className="sticky-bar">
             
             <ul className="navflex">
-                <img className="nav-logo" src={logo} alt="logo"/>
-                <h1 className="nav-title">C3 Cinemas</h1>
+                <Link id="logo-link" to="/"><img className="nav-logo" src={logo} alt="logo"/></Link>
+                <Link id="title-link" to="/"><h1 className="nav-title">C3 Cinemas</h1></Link>
                 {/**This is an invisible divider so the logos are on one side and the links are on the other */}
                 <h1 className='divider'>  </h1>
             <li>
