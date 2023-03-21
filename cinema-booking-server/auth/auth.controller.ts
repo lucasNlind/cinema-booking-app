@@ -27,6 +27,12 @@ export class AuthController {
         return this.authService.changePassword(email, newPassword);
     }
 
+    // @Post('verify-email')
+    // @HttpCode(HttpStatus.OK)
+    // verifyEmail() {
+    //     return this.authService.verifyEmail();
+    // }
+
     @Post('verify-jwt')
     @HttpCode(HttpStatus.OK)
     verifyJwt(@Body() payload: { jwt: string }) {

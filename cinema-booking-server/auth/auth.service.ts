@@ -14,18 +14,25 @@ export class AuthService {
 
     constructor(private userService: UserService, private jwtService: JwtService) {}
 
+    makeActivationCode(): string {
+        let activationCode = '';
+        for (let i = 0; i < 4; i++) {
+            activationCode += Math.floor(Math.random() * 10).toLocaleString();
+        }
+        return activationCode;
+    } 
+
     async hashPassword(password: string): Promise<string> {
         return await hash(password, 12);
     }
 
     async register(user: Readonly<NewUserDTO>): Promise<UserDetails | any> {
-        console.log('User: ', user)
         const {
             firstName,
             lastName,
             email,
             phoneNumber,
-            homeAddress,
+            addresses,
             password,
             isSubscribed
         } = user;
@@ -34,7 +41,6 @@ export class AuthService {
             !lastName ||
             !email ||
             !phoneNumber ||
-            !homeAddress || 
             !password
         ) {
             throw new HttpException('Invalid request.', HttpStatus.BAD_REQUEST);
@@ -43,17 +49,22 @@ export class AuthService {
         if (existingUser) throw new HttpException('An account with that email already exists.', HttpStatus.CONFLICT); 
 
         const hashedPassword = await this.hashPassword(password);
+        const activationCode = this.makeActivationCode();
         const newUser = await this.userService.create(
             USER_TYPE_USER,
             firstName,
             lastName,
             email,
             phoneNumber,
+            addresses,
             hashedPassword,
-            homeAddress,
             isSubscribed,
-            false
+            false,
+            activationCode
         );
+
+        // await this.sendVerificationEmail(email);
+
         return this.userService._getUserDetails(newUser);
     }
 
@@ -81,6 +92,7 @@ export class AuthService {
         if (!email || !password) throw new HttpException('Invalid request.', HttpStatus.BAD_REQUEST);
         const user = await this.validateUser(email.toLowerCase(), password);
         if (!user) throw new HttpException('Invalid Credentials.', HttpStatus.UNAUTHORIZED);
+        if (!user.isActive) throw new HttpException('You have not verified your account.', HttpStatus.UNAUTHORIZED);
         const jwt = await this.jwtService.signAsync({ user });
         return { token: jwt };
     }
@@ -93,6 +105,14 @@ export class AuthService {
             throw new HttpException('Invalid JWT', HttpStatus.UNAUTHORIZED);
         }
     }
+
+    // async sendVerificationEmail(email: string) {
+
+    // }
+
+    // async verifyEmail() {
+
+    // }
 
     async validateApiKey(apiKey: string): Promise<boolean> {
         return apiKey === process.env.API_KEY;

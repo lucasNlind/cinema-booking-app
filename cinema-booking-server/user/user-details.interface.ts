@@ -5,7 +5,6 @@ export interface UserDetails {
     lastName: string;
     email: string;
     phoneNumber: string;
-    homeAddress: string;
     isSubscribed: boolean;
     isActive: boolean;
 }

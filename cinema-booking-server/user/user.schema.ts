@@ -1,5 +1,6 @@
 
 import { Document } from 'mongoose';
+import { Address } from './dto/user-address.dto';
 import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose';
 
 export type UserDocument = User & Document;
@@ -21,6 +22,9 @@ export class User {
 
     @Prop({ required: true })
     phoneNumber: string;
+    
+    @Prop({ required: true })
+    addresses: Address[];
 
     @Prop({ required: true })
     password: string;
@@ -32,7 +36,7 @@ export class User {
     isActive: boolean;
 
     @Prop({ required: true })
-    homeAddress: string;
+    activationCode: string;
 
 }
 

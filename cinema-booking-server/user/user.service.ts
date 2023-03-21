@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Address } from './dto/user-address.dto';
 import { UserDetails } from './user-details.interface';
 import { UserDocument } from './user.schema';
 
@@ -20,7 +21,6 @@ export class UserService {
             lastName: user.lastName,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            homeAddress: user.homeAddress,
             isSubscribed: user.isSubscribed,
             isActive: user.isActive
         };
@@ -32,10 +32,11 @@ export class UserService {
         lastName: string,
         email: string,
         phoneNumber: string,
+        addresses: Address[],
         password: string,
-        homeAddress: string,
         isSubscribed: boolean,
-        isActive: boolean
+        isActive: boolean,
+        activationCode: string
     ): Promise<UserDocument> {
         const newUser = new this.userModel({
             type,
@@ -43,10 +44,11 @@ export class UserService {
             lastName,
             email,
             phoneNumber,
+            addresses,
             password,
-            homeAddress,
             isSubscribed,
-            isActive
+            isActive,
+            activationCode
         })
         return newUser.save();
     }
