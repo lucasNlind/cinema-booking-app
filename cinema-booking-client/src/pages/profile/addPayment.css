@@ -32,6 +32,13 @@
     margin-right: 10px;    
 }
 
+.dropdown-card-type {
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 167px;
+}
+
 .mod {
     font-size: large;
     border-radius: 5px;

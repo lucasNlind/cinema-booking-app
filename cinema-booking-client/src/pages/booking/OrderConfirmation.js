@@ -32,7 +32,7 @@ const OrderConfirmation = () => {
                 A confirmation email for this purchase has been sent to:
             </div>
 
-            <Link className="home-btn" to="/">Home</Link>
+            <Link className="home-btn" to="/">Continue Shopping</Link>
         </div>
     );
 };

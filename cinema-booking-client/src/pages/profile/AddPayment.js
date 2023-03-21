@@ -44,7 +44,16 @@ const AddPayment = () => {
                     </select>
 
                 <input className="cvv mod" type="text" placeholder="CVV"></input>
+
+                <br></br>
                 
+                <select className="dropdown-card-type">
+                        <option> -Card Type- </option>
+                        <option> Visa </option>
+                        <option> MasterCard </option>
+                        <option> Discover </option>
+                        <option> American Express </option>
+                </select>
                 </div>
             </div>
             

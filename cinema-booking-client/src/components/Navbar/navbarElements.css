@@ -46,3 +46,12 @@
     color: #f9f7f3;
     font-size: 18px;
 }
+
+#logo-link {
+    padding: 0px;
+}
+
+#title-link {
+    margin: 0px;
+    padding: 10px 0px;
+}
