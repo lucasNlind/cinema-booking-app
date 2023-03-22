@@ -1,6 +1,7 @@
 
 import { Document } from 'mongoose';
 import { Address } from './dto/user-address.dto';
+import { Payment } from './dto/user-payment-info.dto';
 import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose';
 
 export type UserDocument = User & Document;
@@ -24,7 +25,10 @@ export class User {
     phoneNumber: string;
     
     @Prop({ required: true })
-    addresses: Address[];
+    homeAddress: Address;
+
+    @Prop({ required: false })
+    paymentInfo: Payment[];
 
     @Prop({ required: true })
     password: string;

@@ -46,7 +46,31 @@ export const changePassword = createAsyncThunk('auth/change-password', async (us
   } catch (error) {
     return thunkAPI.rejectWithValue('Unable to change password.')
   }
+});
+
+export const resetPassword = createAsyncThunk('auth/reset-password', async (email, thunkAPI) => {
+  try {
+    await authService.resetPassword(email);
+  } catch (error) {
+    return thunkAPI.rejectWithValue('Unable to reset password.')
+  }
+});
+
+export const updateUserProfile = createAsyncThunk('/auth/update-profile', async (newUserData, thunkAPI) => {
+  try {
+    await authService.updateUserProfile(newUserData);
+  } catch (error) {
+    return thunkAPI.rejectWithValue('Unable to update profile information.')
+  }
 })
+
+export const verifyEmail = createAsyncThunk('auth/verify-email', async (dispatchObject, thunkAPI) => {
+  try {
+    await authService.verifyEmail(dispatchObject.activationCode, dispatchObject.email);
+  } catch (error) {
+    return thunkAPI.rejectWithValue('Unable to verify email.');
+  }
+});
 
 export const verifyJwt = createAsyncThunk('auth/verify-jwt', async (jwt, thunkAPI) => {
     try {
@@ -132,6 +156,20 @@ export const authSlice = createSlice({
         state.isAuthenticated = action.payload;
       })
       .addCase(verifyJwt.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isAuthenticated = false;
+      })
+      // VERIFY EMAIL
+      .addCase(verifyEmail.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(verifyEmail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isAuthenticated = action.payload;
+      })
+      .addCase(verifyEmail.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
         state.isAuthenticated = false;

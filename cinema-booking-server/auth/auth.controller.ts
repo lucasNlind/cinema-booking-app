@@ -4,6 +4,7 @@ import { NewUserDTO } from '../user/dto/new-user.dto';
 import { UserDetails } from '../user/user-details.interface';
 import { ExistingUserDTO } from '../user/dto/existing-user.dto';
 import { Body, Controller, HttpCode, HttpStatus, Patch, Post, UseGuards } from '@nestjs/common';
+import { UpdateUserDTO } from 'cinema-booking-server/user/dto/update-user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -27,11 +28,23 @@ export class AuthController {
         return this.authService.changePassword(email, newPassword);
     }
 
-    // @Post('verify-email')
-    // @HttpCode(HttpStatus.OK)
-    // verifyEmail() {
-    //     return this.authService.verifyEmail();
-    // }
+    @Patch('reset-password')
+    @HttpCode(HttpStatus.OK)
+    resetPassword(@Body('email') email: string): Promise<UserDetails | null> {
+        return this.authService.resetPassword(email);
+    }
+
+    @Post('update-profile')
+    @HttpCode(HttpStatus.OK)
+    updateUserProfile(@Body() newUserData: UpdateUserDTO) {
+        return this.authService.updateUserProfile(newUserData);
+    }
+
+    @Post('verify-email')
+    @HttpCode(HttpStatus.OK)
+    verifyEmail(@Body('activationCode') activationCode: string, @Body('email') email: string) {
+        return this.authService.verifyEmail(activationCode, email);
+    }
 
     @Post('verify-jwt')
     @HttpCode(HttpStatus.OK)

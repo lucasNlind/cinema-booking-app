@@ -6,6 +6,7 @@ import { UserModule } from '../user/user.module';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './guards/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
+import { MailModule } from 'cinema-booking-server/mail/mail.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { PassportModule } from '@nestjs/passport';
         signOptions: { expiresIn: '3600s'}
       })
     }),
-    PassportModule
+    PassportModule,
+    MailModule
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtGuard, JwtStrategy],

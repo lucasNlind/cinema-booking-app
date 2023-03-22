@@ -1,60 +1,70 @@
-import {Link} from 'react-router-dom'
-import './profile.css';
+import { useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import { useAppSelector } from '../../hooks/redux/hooks';
 
-//Profile component that has fields to change name, password, see and delete saved payments
-// Needs fields to edit name and a table to see saved payments
+import ProfileHomeSection from './components/ProfileHomeSection.component';
+import ProfilePaymentSection from './components/ProfilePaymentInfoSection.component';
+import ProfileChangePasswordSection from './components/ProfileChangePasswordSection.component';
+
 const Profile = () => {
+
+    const [activeTab, setActiveTab] = useState('home')
+
+    const { user } = useAppSelector((state) => state.auth);
+
+    console.log('user: ', user)
+
     return (
-        <div className="profile-wrap">
-            <h1 className="profile-title">My Profile</h1>
-
-            <hr className="line-break"></hr>
-
-            <div className="profile-block">
-                <h2 className="h2-subtitles">Details</h2>
-                Name: 
-                <input type="text" value="Aben Ricks" className="profile-name"/>
-                <br></br>
-                Email:
-                <input type="text" value="abenricks@gmail.com" className="profile-email" readonly/>
-                <br></br>
-                <button className="profile-btn" type="button"> Edit Profile</button>
-                <Link className="profile-btn" to="/changepassword">Change Password</Link>
-
-                <br></br>
-
-                <input type="checkbox" className="promo-checkbox"/>Registered for Promotions
-            </div> 
-
-            <div className="profile-block">
-                <h2 className="h2-subtitles">Payments</h2>
-                <span className="saved-payments">Saved Payments: </span>
-
-                <table className="profile-table">
-                    <tr className="profile-row">
-                        <th className="profile-head">Name</th>
-                        <th className="profile-head">Type</th>
-                        <th className="profile-head">Last 4 digits</th>
-                    </tr>
-                    <tr className="profile-row">
-                        <td className="profile-content">Aben's Credit</td>
-                        <td className="profile-content">Visa</td>
-                        <td className="profile-content">**** 0849</td>
-                        <td className="profile-content"><button className="card-btns" type="button">Edit</button></td>
-                        <td className="profile-content"><button className="card-btns" type="button">Delete</button></td>
-                    </tr>
-                </table>
-
-                {/**Add a chart for editing and deleting payments */}
-                <br></br>
-            
-                <div className="profile-center">
-                    
- 
-                    <Link className="profile-btn" to="/addpayment">Add Payment Method</Link>
-                </div>
-            </div>
-        </div>
+        <Box
+            sx={{
+                display: 'inline-flex',
+                color: 'black',
+                width: '100%',
+                m: 'auto',
+                mt: '10vh',
+                mb: '10vh',
+            }}
+        >
+            <Box sx={{ width: '30vw', height: '60vh', display: 'flex', flexDirection: 'column', m: 'auto', ml: '10vw' }}>
+                <Typography sx={{ fontSize: '2vw', color: 'black', textAlign: 'left', mt: '3vh' }}>Profile</Typography>
+                <Box sx={{ backgroundColor: 'black', width: '30vw', height: '2px' }}></Box>
+                <Typography
+                    sx={{
+                        fontSize: '1vw',
+                        mt: '2vh',
+                        cursor: 'pointer',
+                        transition: '0.2s ease-in-out',
+                        ':hover': { transform: 'scale(1.03)' }
+                    }}
+                    onClick={() => setActiveTab('home')}
+                >Home</Typography>
+                <Typography
+                    sx={{
+                        fontSize: '1vw',
+                        mt: '2vh',
+                        cursor: 'pointer',
+                        transition: '0.2s ease-in-out',
+                        ':hover': { transform: 'scale(1.03)' }
+                    }}
+                    onClick={() => setActiveTab('payment')}
+                >Payment Info</Typography>
+                <Typography
+                    sx={{
+                        fontSize: '1vw',
+                        mt: '2vh',
+                        cursor: 'pointer',
+                        transition: '0.2s ease-in-out',
+                        ':hover': { transform: 'scale(1.03)' }
+                    }}
+                    onClick={() => setActiveTab('changePassword')}
+                >Change Password</Typography>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', m: 'auto', width: '50vw', mt: '15vh' }}>
+                {activeTab === 'home' ? <ProfileHomeSection user={user} />: ''}
+                {activeTab === 'payment' ? <ProfilePaymentSection user={user} />: ''}
+                {activeTab === 'changePassword' ? <ProfileChangePasswordSection user={user} />: ''}
+            </Box>
+        </Box>
     );
 };
 

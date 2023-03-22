@@ -16,3 +16,11 @@ export const validatePasswordLength = (text) => {
 export const validateZipCodeLength = (text) => {
     return _validateLength(text, { min: 5, max: 5 });
 }
+
+export const validateCardNumberLength = (text) => {
+    return _validateLength(text, { min: 16, max: 16 });
+}
+
+export const validateCvvLength = (text) => {
+    return _validateLength(text, { min: 3, max: 3 });
+}

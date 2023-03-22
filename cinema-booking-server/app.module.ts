@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { ShowModule } from './show/show.module';
 import { PromotionModule } from './promotion/promotion.module';
 import { MovieModule } from './movie/movie.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { MovieModule } from './movie/movie.module';
     AuthModule,
     ShowModule,
     PromotionModule,
-    MovieModule
+    MovieModule,
+    MailModule
   ],
   controllers: [AppController],
   providers: [AppService],

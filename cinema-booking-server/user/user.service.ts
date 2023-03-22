@@ -1,7 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { exit } from 'process';
 import { Address } from './dto/user-address.dto';
+import { Payment } from './dto/user-payment-info.dto';
 import { UserDetails } from './user-details.interface';
 import { UserDocument } from './user.schema';
 
@@ -20,6 +22,8 @@ export class UserService {
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
+            homeAddress: user.homeAddress,
+            paymentInfo: user.paymentInfo,
             phoneNumber: user.phoneNumber,
             isSubscribed: user.isSubscribed,
             isActive: user.isActive
@@ -32,7 +36,8 @@ export class UserService {
         lastName: string,
         email: string,
         phoneNumber: string,
-        addresses: Address[],
+        homeAddress: Address,
+        paymentInfo: Payment[],
         password: string,
         isSubscribed: boolean,
         isActive: boolean,
@@ -44,7 +49,8 @@ export class UserService {
             lastName,
             email,
             phoneNumber,
-            addresses,
+            homeAddress,
+            paymentInfo,
             password,
             isSubscribed,
             isActive,
@@ -62,6 +68,31 @@ export class UserService {
         if (!existingUser) throw new HttpException('Unable to find resource.', HttpStatus.NOT_FOUND);
         if (existingUser.password === newPassword) throw new HttpException('You have already used this password.', HttpStatus.BAD_REQUEST);
         existingUser.password = newPassword ?? existingUser.password;
+        return existingUser.save();
+    }
+
+    async updateUserProfile(
+        email: string,
+        newFirstName: string,
+        newLastName: string,
+        newPhoneNumber: string,
+        newHomeAddress: Address,
+        newIsSubscribed: boolean
+    ) : Promise<UserDetails | any> {
+        const existingUser = await this.findByEmail(email);
+        if (!existingUser) throw new HttpException('Unable to find resource.', HttpStatus.NOT_FOUND);
+        existingUser.firstName = newFirstName;
+        existingUser.lastName = newLastName;
+        existingUser.phoneNumber = newPhoneNumber;
+        existingUser.homeAddress = {...newHomeAddress};
+        existingUser.isSubscribed = newIsSubscribed;
+        return existingUser.save();
+    }
+
+    async activateUser(email: string) {
+        const existingUser = await this.findByEmail(email);
+        if (!existingUser) throw new HttpException('Unable to find resource.', HttpStatus.NOT_FOUND);
+        existingUser.isActive = true;
         return existingUser.save();
     }
 

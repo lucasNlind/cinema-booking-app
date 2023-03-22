@@ -2,12 +2,12 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 const register = async (newUser) => {
-  const response = await axios.post(`${process.env.REACT_APP_BASE_API}/auth/register`, newUser);
+  const response = await axios.post(`http://localhost:3001/api/auth/register`, newUser);
   return response.data;
 };
   
 const login = async (user) => {
-  const response = await axios.post(`${process.env.REACT_APP_BASE_API}/auth/login`, user);
+  const response = await axios.post(`http://localhost:3001/api/auth/login`, user);
   if (response.data) {
     localStorage.setItem('jwt', JSON.stringify(response.data));
     const decodedJwt = jwt_decode(response.data.token);
@@ -24,15 +24,30 @@ const logout = () => {
 
 const changePassword = async (user) => {
   const changePasswordInstance = axios.create({
-    baseURL: `${process.env.REACT_APP_BASE_API}`,
+    baseURL: `http://localhost:3001/api`,
     headers: { 'Authorization': 'Bearer ' + user.jwt }
   });
   const response = await changePasswordInstance.patch('/auth/change-password', { email: user.email, newPassword: user.password });
   return response.data;
 }
 
+const resetPassword = async (email) => {
+  const response = await axios.patch('http://localhost:3001/api/auth/reset-password', { email });
+  return response.data;
+}
+
+const updateUserProfile = async (newUserData) => {
+  const response = await axios.post('http://localhost:3001/api/auth/update-profile', { newUserData });
+  return response.data;
+}
+
+const verifyEmail = async (activationCode, email) => {
+  const response = await axios.post('http://localhost:3001/api/auth/verify-email', { activationCode, email });
+  return response.data;
+}
+
 const verifyJwt = async (jwt) => {
-  const response = await axios.post(`${process.env.REACT_APP_BASE_API}/auth/verify-jwt`, { jwt });
+  const response = await axios.post(`http://localhost:3001/api/auth/verify-jwt`, { jwt });
   if (response.data) {
     const jwtExpirationMs = response.data.exp * 1000;
     return jwtExpirationMs > Date.now();
@@ -44,8 +59,11 @@ const authService = {
   login,
   logout,
   register,
+  verifyEmail,
   verifyJwt,
   changePassword,
+  resetPassword,
+  updateUserProfile
 };
 
 export default authService;
