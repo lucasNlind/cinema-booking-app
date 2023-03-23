@@ -32,11 +32,11 @@ const PaymentCard = (
     if (isLoading) return <CircularProgress sx={{ width: '100%', height: '100%', margin: 'auto' }} color='primary' />
 
     return (
-        <Box sx={{ width: '40vw', height: '10vh', display: 'inline-flex', border: '2px solid #C7C7C7', borderRadius: '10px', p: '2vh' }}>
+        <Box sx={{ width: '35vw', height: '10vh', display: 'inline-flex', border: '2px solid #C7C7C7', borderRadius: '10px', p: '2vh' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Box sx={{ display: 'inline-flex' }}>
                     <Typography><strong>Card number:</strong></Typography>
-                    <Typography sx={{ ml: '1vw' }}>{cardNumber}</Typography>
+                    <Typography sx={{ ml: '1vw' }}>XXXX-XXXX-XXX-{cardNumber.slice(-4)}</Typography>
                 </Box>
                 <Box sx={{ display: 'inline-flex', mt: '1vh' }}>
                     <Typography><strong>Expiration date:</strong></Typography>

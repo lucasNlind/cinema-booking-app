@@ -31,6 +31,10 @@ const NavbarElements= () => {
         navigate('/profile');
     };
 
+    const goToAdminConsolePage = () => {
+        navigate('/admin/console')
+    }
+
     const logoutHandler = () => {
         dispatch(logout());
         navigate('/');
@@ -132,9 +136,42 @@ const NavbarElements= () => {
     } else if (user && user.type === 'ADMIN') {
         return (
             <Box sx={{ width: '100vw', height: '8vh', display: 'inline-flex', backgroundColor: '#496A81', margin: 'auto', listStyle: 'none' }}>
-                <Box sx={{ display: 'flex', width: '15vw' }}>
+                <Box sx={{ display: 'flex', width: '20vw' }}>
                     <img src={logo} alt='logo' style={{ margin: 'auto', height: '6vh', cursor: 'pointer' }} onClick={() => goToHomePage()} />
                     <Typography sx={{ color: 'white', lineHeight: '8vh', fontSize: '1.8vw', ml: '1vw' }}>C3 Cinemas</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', width: '50vw' }}></Box>
+                <Box sx={{ display: 'flex', width: '30vw', mr: '2vw' }}>
+                    <Typography
+                        onClick={() => goToHomePage()}
+                        sx={{
+                            color: 'white',
+                            lineHeight: '8vh',
+                            cursor: 'pointer',
+                            fontSize: '18px',
+                            ml: '6vw'
+                        }}
+                    >Home</Typography>
+                    <Typography
+                        onClick={() => goToAdminConsolePage()}
+                        sx={{
+                            color: 'white',
+                            lineHeight: '8vh',
+                            cursor: 'pointer',
+                            fontSize: '18px',
+                            ml: '6vw'
+                        }}
+                    >Console</Typography>
+                    <Typography
+                        onClick={() => logoutHandler()}
+                        sx={{
+                            color: 'white',
+                            lineHeight: '8vh',
+                            cursor: 'pointer',
+                            fontSize: '18px',
+                            ml: '6vw'
+                        }}
+                    >Logout</Typography>
                 </Box>
             </Box>
         )

@@ -26,7 +26,7 @@ function App() {
         <Route path="/single" element={<PreviewMovie />} />
 
         {/* ADMIN */}
-        <Route path='/adminhome' element={<AdminPrivateRoute component={<AdminHome /> } /> } />
+        <Route path='/admin/console' element={<AdminPrivateRoute component={<AdminHome /> } /> } />
         <Route path='/addmovie' element={<AddMovie />} />
         <Route path='/editmovie' element={<EditMovie />} />
         <Route path='/pricingpromo' element={<PricingPromo />} />
