@@ -61,4 +61,32 @@ export class MailService {
         }
     }
 
+    async sendProfileUpdateInformation(targetEmail: string) {
+        sgMail.setApiKey('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');
+
+        const subject = '[CINEMA BOOKING APP] - Profile Change';
+        const htmlMain = `<p>This message is to inform you that your profile information has changed.</strong></p>`
+
+        const msg = {
+            to: targetEmail,
+            from: 'lnl29512@uga.edu',
+            subject: subject,
+            text: 'Your account details',
+            html: htmlMain
+        }
+
+        try {
+            await sgMail.send(msg);
+            console.log('Successfully sent profile update confirmation.')
+            return {
+                statusCode: 200,
+                message: 'Success'
+            }
+        } catch (error) {
+            console.log(error)
+            throw new HttpException('Error sending profile update mail', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
 }

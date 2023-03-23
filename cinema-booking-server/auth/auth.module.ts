@@ -13,7 +13,7 @@ import { MailModule } from 'cinema-booking-server/mail/mail.module';
     UserModule,
     JwtModule.registerAsync({
       useFactory: () => ({
-        secret: `${process.env.JWT_SECRET}`,
+        secret: `VCidkWaM9KxkQFzKVigBZwP4TujgeF`,
         signOptions: { expiresIn: '3600s'}
       })
     }),

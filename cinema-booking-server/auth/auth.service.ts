@@ -8,6 +8,8 @@ import { MailService } from 'cinema-booking-server/mail/mail.service';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UserDocument } from 'cinema-booking-server/user/user.schema';
 import { UpdateUserDTO } from 'cinema-booking-server/user/dto/update-user.dto';
+import { randomUUID } from 'crypto';
+import { Address } from 'cinema-booking-server/user/dto/user-address.dto';
 
 const USER_TYPE_USER = 'USER';
 const USER_TYPE_ADMIN = 'ADMIN';
@@ -31,6 +33,10 @@ export class AuthService {
 
     async hashPassword(password: string): Promise<string> {
         return await hash(password, 12);
+    }
+
+    async hashCvv(cvv: string): Promise<string> {
+        return await hash(cvv, 12);
     }
 
     async register(user: Readonly<NewUserDTO>): Promise<UserDetails | any> {
@@ -58,6 +64,21 @@ export class AuthService {
 
         const hashedPassword = await this.hashPassword(password);
         const activationCode = this.makeActivationCode();
+
+        let hashedPaymentInfo = []
+
+        if (!!paymentInfo) {
+            const hashedCvv = await this.hashCvv(paymentInfo[0].cvv);
+            hashedPaymentInfo = [{
+                'paymentId': randomUUID(),
+                'billingAddress': paymentInfo[0].billingAddress,
+                'cardNumber': paymentInfo[0].cardNumber,
+                'expirationDate': paymentInfo[0].expirationDate,
+                'cardHolderName': paymentInfo[0].cardHolderName,
+                'cvv': hashedCvv
+            }]
+        }
+
         const newUser = await this.userService.create(
             USER_TYPE_USER,
             firstName,
@@ -65,21 +86,21 @@ export class AuthService {
             email,
             phoneNumber,
             homeAddress,
-            paymentInfo,
+            hashedPaymentInfo,
             hashedPassword,
             isSubscribed,
             false,
             activationCode
         );
 
-        console.log('Sending verification mail...')
-
         await this.mailService.sendConfirmationCodeEmail(email, activationCode);
 
         return this.userService._getUserDetails(newUser);
     }
 
-    async changePassword(email: string, newPassword: string): Promise<UserDetails | any> {
+    async changePassword(email: string, currentPassword: string, newPassword: string): Promise<UserDetails | any> {
+        const user = await this.validateUser(email.toLowerCase(), currentPassword);
+        if (!user) throw new HttpException('Invalid Credentials.', HttpStatus.UNAUTHORIZED);
         const hashedPassword = await this.hashPassword(newPassword);
         const updatedUser = await this.userService.changePassword(email, hashedPassword);
         return this.userService._getUserDetails(updatedUser);
@@ -98,11 +119,52 @@ export class AuthService {
 
     async updateUserProfile(newUserData: UpdateUserDTO): Promise<UserDetails | any> {
         const { email, newFirstName, newLastName, newPhoneNumber, newHomeAddress, newIsSubscribed } = newUserData;
-        const updatedUser = await this.userService.updateUserProfile(email, newFirstName, newLastName, newPhoneNumber, newHomeAddress, newIsSubscribed);
+        const updatedUser = 
+            await this.userService.updateUserProfile(
+                email,
+                newFirstName,
+                newLastName,
+                newPhoneNumber,
+                newHomeAddress,
+                newIsSubscribed
+            );
 
-        // TODO: Send update profile email
+        await this.mailService.sendProfileUpdateInformation(email);
 
-        return this.userService._getUserDetails(updatedUser);
+        const userDetails = this.userService._getUserDetails(updatedUser);
+        return userDetails;
+    }
+
+    async addPayment(
+        email: string,
+        billingAddress: Address,
+        cardNumber: string,
+        expirationDate: string,
+        cardHolderName: string,
+        cvv: string
+    ): Promise<UserDocument | null> {
+        if (!email || !billingAddress || !cardNumber || !expirationDate || !cardHolderName || !cvv) {
+            throw new HttpException('Bad request.', HttpStatus.BAD_REQUEST);
+        }
+        const paymentId = randomUUID();
+        const hashedCvv = await this.hashCvv(cvv);
+        const addPaymentObject = {
+            paymentId,
+            billingAddress,
+            cardNumber,
+            expirationDate,
+            cardHolderName,
+            'cvv': hashedCvv
+        };
+        const user = await this.userService.findByEmail(email);
+        const doesUserExist = !!user;
+        if (!doesUserExist) throw new HttpException('Unable to find resource.', HttpStatus.BAD_REQUEST);
+        const newPaymentInfo = [...user.paymentInfo, addPaymentObject];
+        user.paymentInfo = newPaymentInfo;
+
+        await this.mailService.sendProfileUpdateInformation(email);
+
+        return user.save();
     }
 
     async doesPasswordMatch(password: string, hashedPassword: string): Promise<boolean> {
@@ -145,5 +207,20 @@ export class AuthService {
 
     async validateApiKey(apiKey: string): Promise<boolean> {
         return apiKey === process.env.API_KEY;
+    }
+
+    async removePaymentMethod(paymentId: string, email: string): Promise<UserDocument | null> {
+        const user = await this.userService.findByEmail(email);
+        const doesUserExist = !!user;
+        if (!doesUserExist) return null;
+        const existingPaymentInfo = user.paymentInfo;
+        const newPaymentInfo = existingPaymentInfo.filter((payment) => {
+            return payment.paymentId !== paymentId;
+        });
+        user.paymentInfo = newPaymentInfo;
+
+        await this.mailService.sendProfileUpdateInformation(email);
+
+        return user.save();
     }
 }

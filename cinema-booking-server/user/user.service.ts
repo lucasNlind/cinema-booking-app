@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { randomUUID } from 'crypto';
 import { Model } from 'mongoose';
-import { exit } from 'process';
 import { Address } from './dto/user-address.dto';
 import { Payment } from './dto/user-payment-info.dto';
 import { UserDetails } from './user-details.interface';
@@ -63,6 +63,12 @@ export class UserService {
         return this.userModel.findOne({ email }).exec();
     }
 
+    async findById(id: string): Promise<UserDocument | null> {
+        const user = await this.userModel.findById(id).exec();
+        if (!user) return null;
+        return user;
+    }
+
     async changePassword(email: string, newPassword: string): Promise<UserDocument> {
         const existingUser = await this.findByEmail(email);
         if (!existingUser) throw new HttpException('Unable to find resource.', HttpStatus.NOT_FOUND);
@@ -84,7 +90,7 @@ export class UserService {
         existingUser.firstName = newFirstName;
         existingUser.lastName = newLastName;
         existingUser.phoneNumber = newPhoneNumber;
-        existingUser.homeAddress = {...newHomeAddress};
+        existingUser.homeAddress = newHomeAddress;
         existingUser.isSubscribed = newIsSubscribed;
         return existingUser.save();
     }

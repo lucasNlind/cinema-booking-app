@@ -58,7 +58,8 @@ export const resetPassword = createAsyncThunk('auth/reset-password', async (emai
 
 export const updateUserProfile = createAsyncThunk('/auth/update-profile', async (newUserData, thunkAPI) => {
   try {
-    await authService.updateUserProfile(newUserData);
+    const res = await authService.updateUserProfile(newUserData);
+    return res;
   } catch (error) {
     return thunkAPI.rejectWithValue('Unable to update profile information.')
   }
@@ -124,6 +125,21 @@ export const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
+      // UPDATE USER PROFILE
+      .addCase(updateUserProfile.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserProfile.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isAuthenticated = true;
+      })
+      .addCase(updateUserProfile.rejected, (state) => {
+        state.isLoading = false;
+        state.isSuccess = false;
+        state.isError = true;
+      })
       // CHANGE PASSWORD
       .addCase(changePassword.pending, (state) => {
         state.isLoading = true;
@@ -145,6 +161,7 @@ export const authSlice = createSlice({
         state.user = null;
         state.jwt = null;
         state.isAuthenticated = false;
+        state.isError = false;
       })
       // VERIFY JWT
       .addCase(verifyJwt.pending, (state) => {

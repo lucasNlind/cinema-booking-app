@@ -257,14 +257,15 @@ const Register = () => {
                 return;
             }
 
-            if (isHomeAndBillingAddressEqual) {
-                homeAddress = {
-                    streetName,
-                    city,
-                    state,
-                    zipCode
-                };
+            homeAddress = {
+                streetName,
+                city,
+                state,
+                zipCode
+            };
 
+            if (isHomeAndBillingAddressEqual) {
+                
                 paymentInfo = [
                     {
                         'billingAddress': homeAddress,
@@ -283,13 +284,6 @@ const Register = () => {
                 ) {
                     return;
                 }
-
-                homeAddress = {
-                    streetName,
-                    city,
-                    state,
-                    zipCode
-                };
 
                 paymentInfo = [
                     {
@@ -318,7 +312,6 @@ const Register = () => {
                 isSubscribed
             }
 
-            console.log('[Register.js] New User (with payment info): ', newUser);
             dispatch(register(newUser));
 
         } else {
@@ -368,7 +361,6 @@ const Register = () => {
                 isSubscribed
             }
 
-            console.log('[Register.js] New User: ', newUser);
             dispatch(register(newUser));
         }
     }

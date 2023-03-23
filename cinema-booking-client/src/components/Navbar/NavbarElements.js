@@ -13,7 +13,7 @@ const NavbarElements= () => {
 
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const { user, jwt, isLoading, isSuccess, isAuthenticated } = useAppSelector((state) => state.auth);
+    const { user, jwt, isSuccess } = useAppSelector((state) => state.auth);
 
     const goToHomePage = () => {
         navigate('/')

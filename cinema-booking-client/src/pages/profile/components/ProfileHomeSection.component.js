@@ -7,11 +7,10 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux/hooks';
 import { validatePhoneNumber } from '../../../shared/utils/validation/phoneNumber';
 import { validateNameLength, validateZipCodeLength } from '../../../shared/utils/validation/length';
 import { Box, Typography, InputLabel, TextField, MenuItem, Switch, Button, CircularProgress } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const ProfileHomeSection = ({ user }) => {
-
-    const dispatch = useAppDispatch();
-    const { isLoading, isSuccess } = useAppSelector((state) => state.auth);
+const ProfileHomeSection = ({ userData, isLoading, setIsLoading, triggerGetData, setTriggerGetData }) => {
 
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [isEditingProfile, setIsEditingProfile] = useState(false);
@@ -21,74 +20,95 @@ const ProfileHomeSection = ({ user }) => {
         text: firstName,
         shouldDisplayError: firstNameHasError,
         inputChangeHandler: firstNameChangeHandler,
-        inputBlurHandler: firstNameBlurHandler
+        inputBlurHandler: firstNameBlurHandler,
+        inputClearHandler: firstNameClearHandler
     } = useInput(validateNameLength);
 
     const {
         text: lastName,
         shouldDisplayError: lastNameHasError,
         inputChangeHandler: lastNameChangeHandler,
-        inputBlurHandler: lastNameBlurHandler
+        inputBlurHandler: lastNameBlurHandler,
+        inputClearHandler: lastNameClearHandler
     } = useInput(validateNameLength);
 
     const {
         text: phoneNumber,
         shouldDisplayError: phoneNumberHasError,
         inputChangeHandler: phoneNumberChangeHandler,
-        inputBlurHandler: phoneNumberBlurHandler
+        inputBlurHandler: phoneNumberBlurHandler,
+        inputClearHandler: phoneNumberClearHandler
     } = useInput(validatePhoneNumber);
 
     const {
         text: streetName,
         shouldDisplayError: streetNameHasError,
         inputChangeHandler: streetNameChangeHandler,
-        inputBlurHandler: streetNameBlurHandler
+        inputBlurHandler: streetNameBlurHandler,
+        inputClearHandler: streetNameClearHandler
     } = useInput(validateNameLength);
 
     const {
         text: city,
         shouldDisplayError: cityHasError,
         inputChangeHandler: cityChangeHandler,
-        inputBlurHandler: cityBlurHandler
+        inputBlurHandler: cityBlurHandler,
+        inputClearHandler: cityClearHandler
     } = useInput(validateNameLength);
 
     const {
         text: state,
         shouldDisplayError: stateHasError,
         inputChangeHandler: stateChangeHandler,
-        inputBlurHandler: stateBlurHandler
+        inputBlurHandler: stateBlurHandler,
     } = useInput(validateNameLength);
 
     const {
         text: zipCode,
         shouldDisplayError: zipCodeHasError,
         inputChangeHandler: zipCodeChangeHandler,
-        inputBlurHandler: zipCodeBlurHandler
+        inputBlurHandler: zipCodeBlurHandler,
+        inputClearHandler: zipCodeClearHandler
     } = useInput(validateZipCodeLength);
+
+    const clearInputHandler = () => {
+        firstNameClearHandler();
+        lastNameClearHandler();
+        phoneNumberClearHandler();
+        streetNameClearHandler();
+        cityClearHandler();
+        zipCodeClearHandler();
+    }
 
     const handleSubscribe = (e) => {
         setIsSubscribed(e.target.checked);
     };
 
     const handleDiscardChanges = () => {
-        window.alert('Are you sure you\'d like to discard your changes?')
-        setIsEditingProfile(false);
-    }
+        const response = window.confirm('Are you sure you\'d like to discard your changes?')
+        if (response) {
+            setIsEditingProfile(false);
+            setIsProfileModified(true);
+        }
+    };
 
-    const handleConfirmEditProfile = (e) => {
+    const handleEditProfile = () => {
+        setIsEditingProfile(true);
+        setIsSubscribed(userData.isSubscribed);
+    };
 
-        console.log('confirmed')
+    const handleConfirmEditProfile = async (e) => {
 
         e.preventDefault();
 
         const newIsSubscribed = isSubscribed;
-        const newCity = city === '' ? user.homeAddress.city : city;
-        const newLastName = lastName === '' ? user.lastName : lastName;
-        const newState = state === '' ? user.homeAddress.state : state;
-        const newFirstName = firstName === '' ? user.firstName : firstName;
-        const newZipCode = zipCode === '' ? user.homeAddress.zipCode : zipCode;
-        const newPhoneNumber = phoneNumber === '' ? user.phoneNumber : phoneNumber;
-        const newStreetName = streetName === '' ? user.homeAddress.streetName : streetName;
+        const newCity = city === '' ? userData.homeAddress.city : city;
+        const newLastName = lastName === '' ? userData.lastName : lastName;
+        const newState = state === '' ? userData.homeAddress.state : state;
+        const newFirstName = firstName === '' ? userData.firstName : firstName;
+        const newZipCode = zipCode === '' ? userData.homeAddress.zipCode : zipCode;
+        const newPhoneNumber = phoneNumber === '' ? userData.phoneNumber : phoneNumber;
+        const newStreetName = streetName === '' ? userData.homeAddress.streetName : streetName;
 
         const newHomeAddress = {
             'streetName': newStreetName,
@@ -98,7 +118,7 @@ const ProfileHomeSection = ({ user }) => {
         }
         
         const newUserData = {
-            'email': user.email,
+            'email': userData.email,
             newFirstName,
             newLastName,
             newPhoneNumber,
@@ -106,10 +126,15 @@ const ProfileHomeSection = ({ user }) => {
             newIsSubscribed
         }
 
-        console.log('update user object: ', newUserData);
+        setIsLoading(true);
+        await axios.patch('http://localhost:3001/api/auth/update-profile', newUserData);
+        setIsLoading(false);
 
-        dispatch(updateUserProfile(newUserData));
         setIsEditingProfile(false);
+        window.alert('Your profile has successfully been updated.');
+        setTriggerGetData(triggerGetData + 1);
+        clearInputHandler();
+        setIsSubscribed(userData.isSubscribed);
     };
 
     useEffect(() => {
@@ -120,7 +145,8 @@ const ProfileHomeSection = ({ user }) => {
             streetName !== '' ||
             city !== '' ||
             state !== '' ||
-            zipCode !== ''
+            zipCode !== '' ||
+            isSubscribed !== userData.isSubscribed
         ) {
             setIsProfileModified(true);
         } else {
@@ -156,8 +182,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.firstName : firstName}
-                            placeholder={user.firstName}
+                            value={!isEditingProfile ? userData.firstName : firstName}
+                            placeholder={userData.firstName}
                             onChange={firstNameChangeHandler}
                             onBlur={firstNameBlurHandler}
                             error={firstNameHasError}
@@ -192,8 +218,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.lastName : lastName}
-                            placeholder={user.lastName}
+                            value={!isEditingProfile ? userData.lastName : lastName}
+                            placeholder={userData.lastName}
                             onChange={lastNameChangeHandler}
                             onBlur={lastNameBlurHandler}
                             error={lastNameHasError}
@@ -231,7 +257,7 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={user.email}
+                            value={userData.email}
                             disabled
                             type='text'
                             name='email'
@@ -262,8 +288,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.phoneNumber : phoneNumber}
-                            placeholder={user.phoneNumber}
+                            value={!isEditingProfile ? userData.phoneNumber : phoneNumber}
+                            placeholder={userData.phoneNumber}
                             onChange={phoneNumberChangeHandler}
                             onBlur={phoneNumberBlurHandler}
                             error={phoneNumberHasError}
@@ -278,7 +304,7 @@ const ProfileHomeSection = ({ user }) => {
                     </Box>
                 </Box>
                 <Box sx={{ display: 'inline-flex', mt: '1vh' }}>
-                    <Switch sx={{ mt: '1vh' }} checked={!isEditingProfile ? user.isSubscribed : isSubscribed} onChange={handleSubscribe} disabled={!isEditingProfile}/>
+                    <Switch sx={{ mt: '1vh' }} checked={!isEditingProfile ? userData.isSubscribed : isSubscribed} onChange={handleSubscribe} disabled={!isEditingProfile}/>
                     <Typography sx={{ lineHeight: '5vh', color: 'black' }}>Subscribed to promotions</Typography>
                 </Box>
                 <Typography sx={{ mt: '3vh', mb: '1vh', fontSize: '1vw' }}>Home Address</Typography>
@@ -306,8 +332,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.homeAddress.streetName : streetName}
-                            placeholder={user.homeAddress.streetName}
+                            value={!isEditingProfile ? userData.homeAddress.streetName : streetName}
+                            placeholder={userData.homeAddress.streetName}
                             onChange={streetNameChangeHandler}
                             onBlur={streetNameBlurHandler}
                             error={streetNameHasError}
@@ -342,8 +368,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.homeAddress.city : city}
-                            placeholder={user.homeAddress.city}
+                            value={!isEditingProfile ? userData.homeAddress.city : city}
+                            placeholder={userData.homeAddress.city}
                             onChange={cityChangeHandler}
                             onBlur={cityBlurHandler}
                             error={cityHasError}
@@ -381,7 +407,7 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.homeAddress.state : state}
+                            value={!isEditingProfile ? userData.homeAddress.state : state}
                             onChange={stateChangeHandler}
                             onBlur={stateBlurHandler}
                             error={stateHasError}
@@ -419,8 +445,8 @@ const ProfileHomeSection = ({ user }) => {
                                     backgroundColor: '#C7C7C7'
                                 }
                             }}
-                            value={!isEditingProfile ? user.homeAddress.zipCode : zipCode}
-                            placeholder={user.homeAddress.zipCode}
+                            value={!isEditingProfile ? userData.homeAddress.zipCode : zipCode}
+                            placeholder={userData.homeAddress.zipCode}
                             onChange={zipCodeChangeHandler}
                             onBlur={zipCodeBlurHandler}
                             error={zipCodeHasError}
@@ -471,7 +497,7 @@ const ProfileHomeSection = ({ user }) => {
                                 },
                             }}
                             variant='contained'
-                            onClick={() => setIsEditingProfile(true)}
+                            onClick={handleEditProfile}
                         >Edit Profile</Button>
                     }
                     <Button

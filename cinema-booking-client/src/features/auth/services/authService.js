@@ -37,7 +37,7 @@ const resetPassword = async (email) => {
 }
 
 const updateUserProfile = async (newUserData) => {
-  const response = await axios.post('http://localhost:3001/api/auth/update-profile', { newUserData });
+  const response = await axios.patch('http://localhost:3001/api/auth/update-profile', { newUserData });
   return response.data;
 }
 

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import axios from 'axios';
+
+import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useAppSelector } from '../../hooks/redux/hooks';
 
@@ -8,11 +10,23 @@ import ProfileChangePasswordSection from './components/ProfileChangePasswordSect
 
 const Profile = () => {
 
-    const [activeTab, setActiveTab] = useState('home')
+    
+    const [userData, setUserData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const [activeTab, setActiveTab] = useState('home');
+    const [triggerGetData, setTriggerGetData] = useState(0);
 
     const { user } = useAppSelector((state) => state.auth);
 
-    console.log('user: ', user)
+    useEffect(() => {
+        const fetchUserData = async () => {
+            setIsLoading(true);
+            const fetchUserDataInstance = await axios.get('http://localhost:3001/api/user/' + user.id);
+            setUserData(fetchUserDataInstance.data);
+            setIsLoading(false);
+        }
+        fetchUserData().catch(console.error);
+    }, [triggerGetData]);
 
     return (
         <Box
@@ -60,9 +74,28 @@ const Profile = () => {
                 >Change Password</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', m: 'auto', width: '50vw', mt: '15vh' }}>
-                {activeTab === 'home' ? <ProfileHomeSection user={user} />: ''}
-                {activeTab === 'payment' ? <ProfilePaymentSection user={user} />: ''}
-                {activeTab === 'changePassword' ? <ProfileChangePasswordSection user={user} />: ''}
+                {activeTab === 'home' ? 
+                    <ProfileHomeSection
+                        triggerGetData={triggerGetData}
+                        setTriggerGetData={setTriggerGetData}
+                        userData={userData}
+                        isLoading={isLoading}
+                        setIsLoading={setIsLoading}
+                    />: ''}
+                {activeTab === 'payment' ? 
+                    <ProfilePaymentSection
+                        triggerGetData={triggerGetData}
+                        setTriggerGetData={setTriggerGetData}
+                        userData={userData}
+                        isLoading={isLoading}
+                        setIsLoading={setIsLoading}
+                    />: ''}
+                {activeTab === 'changePassword' ?
+                    <ProfileChangePasswordSection
+                        userData={userData}
+                        isLoading={isLoading}
+                        setIsLoading={setIsLoading}
+                    />: ''}
             </Box>
         </Box>
     );
