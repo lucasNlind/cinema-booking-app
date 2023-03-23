@@ -7,7 +7,7 @@ export class MailService {
 
     async sendConfirmationCodeEmail(targetEmail: string, activationCode: string) {
 
-        sgMail.setApiKey('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');
+        sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
         const subject = '[CINEMA BOOKING APP] - Confirm Email';
         const htmlMain = `<p>Activation Code: <strong>${activationCode}</strong></p>`
@@ -35,7 +35,7 @@ export class MailService {
 
     async sendTemporaryPasswordEmail(targetEmail: string, temporaryPassword: string) {
 
-        sgMail.setApiKey('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');
+        sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
         const subject = '[CINEMA BOOKING APP] - Password Reset';
         const htmlMain = `<p>Your temporary password: <strong>${temporaryPassword}</strong></p>`
@@ -62,7 +62,8 @@ export class MailService {
     }
 
     async sendProfileUpdateInformation(targetEmail: string) {
-        sgMail.setApiKey('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');
+        
+        sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
         const subject = '[CINEMA BOOKING APP] - Profile Change';
         const htmlMain = `<p>This message is to inform you that your profile information has changed.</strong></p>`
