@@ -8,9 +8,14 @@ export class UserController {
 
     constructor(private userService: UserService) {}
 
-    @Get(':id')
+    @Get('fetch/:id')
     getUser(@Param('id') id: string): Promise<UserDocument | null> {
         return this.userService.findById(id);
+    }
+
+    @Get('fetch-all')
+    fetchAllUsers(): Promise<UserDocument[]> {
+        return this.userService.fetchAllUsers();
     }
 
 }

@@ -12,6 +12,8 @@ const AdminPrivateRoute = ( { page } ) => {
         if (!user || !jwt || !jwt.token) return;
     }, [user, jwt, isSuccess]);
 
+    console.log('condition: ', isAuthenticated && user.type === 'ADMIN')
+
     return (isAuthenticated && user.type === 'ADMIN') ? page : <Navigate replace to='/' />
 
 };

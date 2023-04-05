@@ -13,6 +13,9 @@ export class Movie {
     category: string;
 
     @Prop({ required: true })
+    cast: Array<string>;
+
+    @Prop({ required: true })
     director: string;
 
     @Prop({ required: true })
@@ -22,10 +25,7 @@ export class Movie {
     summary: string;
 
     @Prop({ required: true })
-    review: string;
-
-    @Prop({ required: true })
-    showDate: number;
+    reviews: Array<string>;
 
     @Prop({ required: true })
     moviePosterUrl: string;
@@ -33,8 +33,11 @@ export class Movie {
     @Prop({ required: true })
     trailerUrl: string;
 
+    @Prop({ required: false })
+    showDates: Array<number>;
+
     @Prop({ required: true })
-    rating: number;
+    rating: string;
 
 }
 

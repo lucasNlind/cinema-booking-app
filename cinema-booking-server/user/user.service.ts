@@ -102,4 +102,9 @@ export class UserService {
         return existingUser.save();
     }
 
+    async fetchAllUsers(): Promise<UserDocument[]> {
+        const users = await this.userModel.find().exec();
+        return users;
+    }
+
 }

@@ -10,7 +10,6 @@ import ProfileChangePasswordSection from './components/ProfileChangePasswordSect
 
 const Profile = () => {
 
-    
     const [userData, setUserData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('home');
@@ -21,7 +20,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             setIsLoading(true);
-            const fetchUserDataInstance = await axios.get('http://localhost:3001/api/user/' + user.id);
+            const fetchUserDataInstance = await axios.get('http://localhost:3001/api/user/fetch/' + user.id);
             setUserData(fetchUserDataInstance.data);
             setIsLoading(false);
         }

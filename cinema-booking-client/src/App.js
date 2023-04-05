@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 
-import { PreviewMovie, Navbar, AdminHome, AddMovie, EditMovie, AddPromo, PricingPromo, UserPortal, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
+import { PreviewMovie, Navbar, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
 /* These are the imported components from the index.js file so it is neater in the App.js file*/
 
 import Home from '../src/pages/home/Home';
+import AdminConsole from './pages/admin/AdminConsole';
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -26,15 +27,10 @@ function App() {
         <Route path="/single" element={<PreviewMovie />} />
 
         {/* ADMIN */}
-        <Route path='/admin/console' element={<AdminPrivateRoute component={<AdminHome /> } /> } />
-        <Route path='/addmovie' element={<AddMovie />} />
-        <Route path='/editmovie' element={<EditMovie />} />
-        <Route path='/pricingpromo' element={<PricingPromo />} />
-        <Route path='/addpromo' element={<AddPromo />} />
-        <Route path='/userportal' element={<UserPortal />} />
+        <Route path='/admin' element={<AdminPrivateRoute page={ <AdminConsole /> } /> } />
         
         {/* PROFILE */}
-        <Route path='/profile' element={<AuthenticatedUserPrivateRoute page={<Profile /> } /> } />
+        <Route path='/profile' element={<AuthenticatedUserPrivateRoute page={ <Profile /> } /> } />
 
         {/* AUTH */}
         <Route path='/login' element={<UnauthenticatedUserPrivateRoute page={ <Login /> } /> } />

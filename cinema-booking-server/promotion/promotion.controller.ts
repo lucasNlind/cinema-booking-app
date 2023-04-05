@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Get, Post } from '@nestjs/common'
 import { PromotionDocument } from './promotion.schema';
 import { PromotionService } from './promotion.service';
 
@@ -16,6 +16,11 @@ export class PromotionController {
             promotionCode,
             discountPercentage
         );
+    }
+
+    @Get('fetch-all')
+    getAllPromotions(): Promise<PromotionDocument[]> {
+        return this.promotionService.fetchAllPromotions();
     }
 
 }

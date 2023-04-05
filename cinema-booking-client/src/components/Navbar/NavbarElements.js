@@ -32,7 +32,7 @@ const NavbarElements= () => {
     };
 
     const goToAdminConsolePage = () => {
-        navigate('/admin/console')
+        navigate('/admin')
     }
 
     const logoutHandler = () => {
@@ -46,8 +46,8 @@ const NavbarElements= () => {
         }
     }, [isSuccess, dispatch]);
 
-    console.log('jwt: ', jwt);
-    console.log('user: ', user);
+    // console.log('jwt: ', jwt);
+    // console.log('user: ', user);
 
     if (!user || (user && !jwt)) {
         return (

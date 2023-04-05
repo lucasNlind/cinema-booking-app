@@ -10,22 +10,12 @@ import { Provider } from 'react-redux';
 export { default as Navbar } from './components/Navbar/NavbarElements';
 export { default as PreviewMovie } from './pages/previewMovie/PreviewMovie';
 
-export { default as AdminHome } from './pages/admin/AdminHome';
-export { default as AddMovie } from './pages/admin/AddMovie';
-export { default as EditMovie } from './pages/admin/EditMovie';
-export { default as PricingPromo } from './pages/admin/PricingPromo';
-export { default as UserPortal } from './pages/admin/UserPortal';
-export { default as AddPromo } from './pages/admin/AddPromo';
-
-
 export { default as Profile } from './pages/profile/Profile';
-
 export { default as TicketSelect } from './pages/booking/TicketSelect';
 export { default as SeatSelect } from './pages/booking/SeatSelect';
 export { default as OrderSummary } from './pages/booking/OrderSummary';
 export { default as Checkout } from './pages/booking/Checkout';
 export { default as OrderConfirmation } from './pages/booking/OrderConfirmation';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

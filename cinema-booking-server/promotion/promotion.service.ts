@@ -8,7 +8,7 @@ export class PromotionService {
 
     constructor(
         @InjectModel('Promotion')
-        private readonly PromotionModel: Model<PromotionDocument>    
+        private readonly promotionModel: Model<PromotionDocument>    
     ) {}
 
     async create (
@@ -16,12 +16,17 @@ export class PromotionService {
         discountPercentage: number
     ): Promise<PromotionDocument> {
 
-        const newPromotion = new this.PromotionModel({
+        const newPromotion = new this.promotionModel({
             promotionCode,
             discountPercentage
         })
 
         return newPromotion.save();
+    }
+
+    async fetchAllPromotions(): Promise<PromotionDocument[]> {
+        const promotions = await this.promotionModel.find().exec();
+        return promotions;
     }
 
 }
