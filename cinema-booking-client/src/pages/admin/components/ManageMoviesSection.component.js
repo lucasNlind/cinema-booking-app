@@ -1,29 +1,56 @@
 import axios from 'axios';
-import useInput from '../../../hooks/input/use-input';
 
-import * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs';
 
 import { useState } from 'react';
-import { Box, Button, CircularProgress, Modal, Typography, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import { Box, Button, Modal, Typography, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 import AddMovieForm from './forms/AddMovieForm.component';
+import EditMovieForm from './forms/EditMovieForm.component';
 
-const ManageMoviesSection = ({ movieData, setMovieData, triggerGetData, setTriggerGetData, isLoading, setIsLoading }) => {
+const ManageMoviesSection = ({ movieData, triggerGetData, setTriggerGetData, isLoading, setIsLoading }) => {
 
-    const [showModal, setShowModal] = useState(false);
+    const [activeMovie, setActiveMovie] = useState({});
+    const [showAddMovieModal, setShowAddMovieModal] = useState(false);
+    const [showEditMovieModal, setShowEditMovieModal] = useState(false);
 
-    const handleOpenModal = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
+    const handleOpenAddMovieModal = () => setShowAddMovieModal(true);
+    const handleCloseAddMovieModal = () => setShowAddMovieModal(false);
 
-    if (isLoading) return <CircularProgress sx={{ width: '100%', height: '100%', margin: 'auto' }} color='primary' />
+    const handleOpenEditMovieModal = (movie) => {
+        setActiveMovie(movie);
+        setShowEditMovieModal(true);
+    }
+    const handleCloseEditMovieModal = () =>setShowEditMovieModal(false);
+
+    const handleDeleteMovie = async (movieId, title) => {
+
+        const res = window.confirm('Are you sure you\'d like to delete this movie?');
+
+        if (!res) return;
+
+        setIsLoading(true);
+        await axios.delete('http://localhost:3001/api/movie/delete/' + movieId);
+        setIsLoading(false);
+        setTriggerGetData(triggerGetData + 1);
+        window.alert('You have successfully deleted movie with title: ' + title + '.');
+    }
 
     return (
         <Box sx={{ width: '50vw', height: '60vh', display: 'flex', flexDirection: 'column' }}>
-            <Modal open={showModal} onClose={handleCloseModal} sx={{ backgroundColor: 'white' }}>
+            <Modal open={showAddMovieModal} onClose={handleCloseAddMovieModal}>
                 <AddMovieForm
                     setIsLoading={setIsLoading}
                     triggerGetData={triggerGetData}
                     setTriggerGetData={setTriggerGetData}
-                    setShowModal={setShowModal}
+                    setShowAddMovieModal={setShowAddMovieModal}
+                />
+            </Modal>
+            <Modal open={showEditMovieModal} onClose={handleCloseEditMovieModal}>
+                <EditMovieForm
+                    activeMovie={activeMovie}
+                    triggerGetData={triggerGetData}
+                    setTriggerGetData={setTriggerGetData}
+                    setShowEditMovieModal={setShowEditMovieModal}
                 />
             </Modal>
             <Typography sx={{ fontSize: '2vw' }}>Movies</Typography>
@@ -47,10 +74,14 @@ const ManageMoviesSection = ({ movieData, setMovieData, triggerGetData, setTrigg
                                     <TableCell>{movie.title}</TableCell>
                                     <TableCell>{movie.director}</TableCell>
                                     <TableCell>{movie.producer}</TableCell>
-                                    <TableCell>{dayjs.unix(movie.showDates[0]).format('DD/MM/YYYY')}</TableCell>
+                                    <TableCell sx={{ display: 'flex', flexDirection: 'column' }}>
+                                        {movie.showDates.map((showDate) => {
+                                            return <Typography>{dayjs(showDate).format('YYYY-MM-DD @ HH:mm')}</Typography>
+                                        })}
+                                    </TableCell>
                                     <TableCell>{movie.rating}</TableCell>
-                                    <TableCell><Button>Edit</Button></TableCell>
-                                    <TableCell><Button>Remove</Button></TableCell>
+                                    <TableCell><Button onClick={() => handleOpenEditMovieModal(movie)}>Edit</Button></TableCell>
+                                    <TableCell><Button onClick={() => handleDeleteMovie(movie._id, movie.title)}>Remove</Button></TableCell>
 
                                 </TableRow>
                             )
@@ -58,7 +89,7 @@ const ManageMoviesSection = ({ movieData, setMovieData, triggerGetData, setTrigg
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Button onClick={handleOpenModal}>Add Movie</Button>
+            <Button onClick={handleOpenAddMovieModal}>Add Movie</Button>
         </Box>
     );
 };

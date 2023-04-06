@@ -10,6 +10,7 @@ import { PromotionService } from './promotion.service';
     MongooseModule.forFeature([{ name: 'Promotion', schema: PromotionSchema}]),
   ],
   controllers: [PromotionController],
-  providers: [PromotionService]
+  providers: [PromotionService],
+  exports: [PromotionService]
 })
 export class PromotionModule {}

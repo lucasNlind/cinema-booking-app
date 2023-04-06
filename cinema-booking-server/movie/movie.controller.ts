@@ -1,6 +1,6 @@
 import { MovieDocument } from './movie.schema';
 import { MovieService } from './movie.service';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 
 @Controller('movie')
 export class MovieController {
@@ -21,7 +21,7 @@ export class MovieController {
         @Body('showDates') showDates: Array<number>,
         @Body('rating') rating: string
     ): Promise<MovieDocument> {
-        console.log(title, category, cast, director, producer, summary, reviews, moviePosterUrl, trailerUrl, showDates, rating)
+        console.log('showDates: ', showDates);
         return this.movieService.create(
             title,
             category,
@@ -45,5 +45,36 @@ export class MovieController {
     @Get('fetch-all')
     getAllMovies(): Promise<MovieDocument[]> {
         return this.movieService.fetchAllMovies();
+    }
+
+    @Get('fetch-all/status/showing-now')
+    getAllMoviesShowingNow(): Promise<MovieDocument[]> {
+        return this.movieService.fetchAllMoviesShowingNow();
+    }
+
+    @Get('fetch-all/status/coming-soon')
+    getAllMoviesComingSoon(): Promise<MovieDocument[]> {
+        return this.movieService.fetchAllMoviesComingSoon();
+    }
+
+    @Patch('update/show-dates/remove/:movieId')
+    removeMovieShowDate(
+        @Param('movieId') movieId: string, 
+        @Body('showDates') showDates: Array<number>
+    ): Promise<MovieDocument> {
+        return this.movieService.removeMovieShowDate(movieId, showDates);
+    }
+
+    @Patch('update/show-dates/add/:movieId')
+    addMovieShowDate(
+        @Param('movieId') movieId: string,
+        @Body('newShowDate') newShowDate: number
+    ): Promise<MovieDocument> {
+        return this.movieService.addMovieShowDate(movieId, newShowDate);
+    }
+
+    @Delete('delete/:movieId')
+    deleteMovie(@Param('movieId') movieId: string) {
+        return this.movieService.deleteMovie(movieId);
     }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { useEffect, useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, CircularProgress } from '@mui/material';
 import ManageMoviesSection from './components/ManageMoviesSection.component';
 import ManageUsersSection from './components/ManageUsersSection.component';
 import ManagePromotionsSection from './components/ManagePromotionsSection.component';
@@ -17,6 +17,7 @@ const AdminConsole = () => {
     const [triggerGetData, setTriggerGetData] = useState(0);
 
     useEffect(() => {
+
         const fetchMovieData = async () => {
             setIsLoading(true);
             const fetchMovieDataInstance = await axios.get('http://localhost:3001/api/movie/fetch-all');
@@ -42,6 +43,8 @@ const AdminConsole = () => {
         fetchUserData().catch(console.error);
         fetchPromotionData().catch(console.error);
     }, [triggerGetData]);
+
+    if (isLoading) return <CircularProgress sx={{ width: '100%', height: '100%', margin: 'auto' }} color='primary' />
 
     return (
         <Box
@@ -92,7 +95,6 @@ const AdminConsole = () => {
                 {activeTab === 'movies' ?
                     <ManageMoviesSection
                         movieData={movieData}
-                        setMovieData={setMovieData}
                         triggerGetData={triggerGetData}
                         setTriggerGetData={setTriggerGetData}
                         isLoading={isLoading}
@@ -111,6 +113,7 @@ const AdminConsole = () => {
                         triggerGetData={triggerGetData}
                         setTriggerGetData={setTriggerGetData}
                         isLoading={isLoading}
+                        setIsLoading={setIsLoading}
                     /> : ''}
             </Box>
         </Box>

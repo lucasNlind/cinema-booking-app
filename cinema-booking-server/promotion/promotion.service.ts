@@ -29,4 +29,9 @@ export class PromotionService {
         return promotions;
     }
 
+    async deletePromotion(promotionId: string) {
+        console.log('promotionId: ', promotionId);
+        await this.promotionModel.deleteOne({ _id: promotionId }).exec();
+    }
+
 }

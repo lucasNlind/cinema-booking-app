@@ -107,4 +107,13 @@ export class UserService {
         return users;
     }
 
+    async fetchAllSubscribedUserEmails(): Promise<Array<string>> {
+        const users = await this.userModel.find({ isSubscribed: true }).exec();
+        let emails = [];
+        for (const user of users) {
+            emails = [...emails, user.email];
+        }
+        return emails;
+    }
+
 }

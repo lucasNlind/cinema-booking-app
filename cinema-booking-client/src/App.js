@@ -6,6 +6,7 @@ import { PreviewMovie, Navbar, Checkout, OrderConfirmation, OrderSummary, SeatSe
 
 import Home from '../src/pages/home/Home';
 import AdminConsole from './pages/admin/AdminConsole';
+import MoviePage from './pages/booking/MoviePage';
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -17,35 +18,41 @@ import AdminPrivateRoute from './features/auth/components/AdminPrivateRoute';
 import AuthenticatedUserPrivateRoute from './features/auth/components/AuthenticatedUserPrivateRoute';
 import UnauthenticatedUserPrivateRoute from './features/auth/components/UnauthenticatedUserPrivateRoute';
 
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path='/' element={<Home />} />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={ <Home />} />
 
-        <Route path="/single" element={<PreviewMovie />} />
+          <Route path='/movie' element={ <MoviePage /> } />
 
-        {/* ADMIN */}
-        <Route path='/admin' element={<AdminPrivateRoute page={ <AdminConsole /> } /> } />
-        
-        {/* PROFILE */}
-        <Route path='/profile' element={<AuthenticatedUserPrivateRoute page={ <Profile /> } /> } />
+          {/* ADMIN */}
+          <Route path='/admin' element={ <AdminPrivateRoute page={ <AdminConsole /> } /> } />
+          
+          {/* PROFILE */}
+          <Route path='/profile' element={ <AuthenticatedUserPrivateRoute page={ <Profile /> } /> } />
 
-        {/* AUTH */}
-        <Route path='/login' element={<UnauthenticatedUserPrivateRoute page={ <Login /> } /> } />
-        <Route path='/register' element={<UnauthenticatedUserPrivateRoute page={ <Register /> } /> } />
-        <Route path='/confirm-email' element={<UnauthenticatedUserPrivateRoute page={ <ConfirmEmail /> } /> } />
-        <Route path='/forgot-password' element={<UnauthenticatedUserPrivateRoute page={ <ForgotPassword /> } /> } />
+          {/* AUTH */}
+          <Route path='/login' element={ <UnauthenticatedUserPrivateRoute page={ <Login /> } /> } />
+          <Route path='/register' element={ <UnauthenticatedUserPrivateRoute page={ <Register /> } /> } />
+          <Route path='/confirm-email' element={ <UnauthenticatedUserPrivateRoute page={ <ConfirmEmail /> } /> } />
+          <Route path='/forgot-password' element={ <UnauthenticatedUserPrivateRoute page={ <ForgotPassword /> } /> } />
 
-        <Route path='/seatselect' element={<SeatSelect />} />
-        <Route path='/ticketselect' element={<TicketSelect />} />
-        <Route path='/ordersummary' element={<OrderSummary />} />
-        <Route path='/checkout' element={<Checkout />} /> 
-        <Route path='/orderconfirmation' element={<OrderConfirmation />} />
-        <Route path='*' element={ <Navigate to='/' /> } />
-      </Routes>
-    </Router>
+          <Route path='/seatselect' element={ <SeatSelect />} />
+          <Route path='/ticketselect' element={ <TicketSelect />} />
+          <Route path='/ordersummary' element={ <OrderSummary />} />
+          <Route path='/checkout' element={ <Checkout />} /> 
+          <Route path='/orderconfirmation' element={ <OrderConfirmation />} />
+          <Route path='*' element={ <Navigate to='/' /> } />
+        </Routes>
+      </Router>
+    </LocalizationProvider>
+    
   
   );
 }

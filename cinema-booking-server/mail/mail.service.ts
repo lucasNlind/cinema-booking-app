@@ -1,9 +1,56 @@
 import * as sgMail from '@sendgrid/mail';
 
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+
+import { UserService } from 'cinema-booking-server/user/user.service';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import { PromotionService } from 'cinema-booking-server/promotion/promotion.service';
 
 @Injectable()
 export class MailService {
+
+    @Inject(UserService)
+    private readonly userService: UserService;
+
+    @Inject(PromotionService)
+    private readonly promotionService: PromotionService;
+
+    async sendPromotionEmails(): Promise<void> {
+
+        const userEmails = await this.userService.fetchAllSubscribedUserEmails();
+
+        if (!userEmails.length) return;
+
+        const promotions = await this.promotionService.fetchAllPromotions();
+
+        console.log('userEmails: ', userEmails);
+        console.log('promotions: ', promotions);
+
+        sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
+
+        const subject = '[CINEMA BOOKING APP] - Promotions';
+        let htmlMain = '<p>Since you are subscribed to receive promotions, please use the following codes next time you check out!</p>';
+
+        for (const promotion of promotions) {
+            htmlMain += `<p>Promotion Code: <strong>${promotion.promotionCode}</strong>, Discount Percentage: <strong>%${promotion.discountPercentage}</strong></p>`
+        }
+
+        const msg = {
+            to: userEmails,
+            from: 'lnl29512@uga.edu',
+            subject: subject,
+            text: 'Your confirmation code',
+            html: htmlMain
+        };
+
+        try {
+            await sgMail.sendMultiple(msg);
+            console.log()
+        } catch (error) {
+            console.log(error);
+            console.log('Error sending promotion mail.');
+        }
+
+    }
 
     async sendConfirmationCodeEmail(targetEmail: string, activationCode: string) {
 

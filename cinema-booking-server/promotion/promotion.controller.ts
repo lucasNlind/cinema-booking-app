@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
 import { PromotionDocument } from './promotion.schema';
 import { PromotionService } from './promotion.service';
 
@@ -21,6 +21,12 @@ export class PromotionController {
     @Get('fetch-all')
     getAllPromotions(): Promise<PromotionDocument[]> {
         return this.promotionService.fetchAllPromotions();
+    }
+
+    @Delete('delete/:promotionId')
+    deletePromotion(@Param('promotionId') promotionId: string) {
+        console.log('controller: ', promotionId);
+        return this.promotionService.deletePromotion(promotionId);
     }
 
 }
