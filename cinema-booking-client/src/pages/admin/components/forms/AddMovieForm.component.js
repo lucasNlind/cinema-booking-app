@@ -16,7 +16,7 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
     const { text: director, inputChangeHandler: directorChangeHandler } = useInput();
     const { text: producer, inputChangeHandler: producerChangeHandler } = useInput();
     const { text: summary, inputChangeHandler: summaryChangeHandler } = useInput();
-    const { text: reviews, iinputChangeHandler: reviewsChangeHandler } = useInput();
+    const { text: reviews, inputChangeHandler: reviewsChangeHandler } = useInput();
     const { text: moviePosterUrl, inputChangeHandler: moviePosterUrlChangeHandler } = useInput();
     const { text: trailerUrl, inputChangeHandler: trailerUrlChangeHandler } = useInput();
     const { text: rating, inputChangeHandler: ratingChangeHandler } = useInput();
@@ -83,12 +83,12 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
     }
 
     return (
-        <Box sx={{ width: '60vw', height: '40vh', backgroundColor: 'white', m: 'auto', marginTop: '20vh', p: '2vw' }}>
-            <Typography>Add Movie</Typography>
+        <Box sx={{ width: '60vw', height: '70vh', backgroundColor: 'white', m: 'auto', marginTop: '10vh', p: '2vw' , borderRadius: "5px" }}>
+            <Typography sx={{fontSize:"30px" , marginBottom:"10px"}}>Add Movie</Typography>
             <form onSubmit={onSubmitHandler}>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Title:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', alignItems:'center', marginBottom:'30px' }}>
+                    <InputLabel sx={{ marginRight:'55px' }}>Title:</InputLabel>
+                    <TextField sx={{ marginRight:'20px' }}
                         value={title}
                         onChange={titleChangeHandler}
                         type='text'
@@ -96,8 +96,8 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         name='title'
                         id='title'
                     ></TextField>
-                    <InputLabel>Category:</InputLabel>
-                    <TextField
+                    <InputLabel sx={{ marginRight:'22px' }}>Category:</InputLabel>
+                    <TextField sx={{ width:'190px' }}
                         value={category}
                         onChange={categoryChangeHandler}
                         type='text'
@@ -113,9 +113,11 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         <MenuItem value='drama'>Drama</MenuItem>
                     </TextField>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Cast:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', marginBottom:'30px', alignItems:'center' }}>
+                    <InputLabel sx={{ marginRight:'52px' }}>Cast:</InputLabel>
+                    <TextField sx={{ marginRight:'20px', width:'223px' }}
+                        multiline={true}
+                        rows={2}
                         value={cast}
                         onChange={castChangeHandler}
                         type='text'
@@ -123,7 +125,7 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         name='cast'
                         id='cast'
                     ></TextField>
-                    <InputLabel>Director:</InputLabel>
+                    <InputLabel sx={{ marginRight:'30px' }}>Director:</InputLabel>
                     <TextField
                         value={director}
                         onChange={directorChangeHandler}
@@ -133,9 +135,9 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         id='director'
                     ></TextField>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Producer:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', marginBottom:'30px' }}>
+                    <InputLabel sx={{ marginRight:'19px' }}>Producer:</InputLabel>
+                    <TextField sx={{ marginRight:'20px' }}
                         value={producer}
                         onChange={producerChangeHandler}
                         type='text'
@@ -143,8 +145,10 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         name='producer'
                         id='producer'
                     ></TextField>
-                    <InputLabel>Summary:</InputLabel>
-                    <TextField
+                    <InputLabel sx={{ marginRight:'18px' }}>Summary:</InputLabel>
+                    <TextField sx={{ width:'400px' }}
+                        multiline={true}
+                        rows={5}
                         value={summary}
                         onChange={summaryChangeHandler}
                         type='text'
@@ -153,9 +157,9 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         id='summary'
                     ></TextField>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Reviews:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', marginBottom:'30px', alignItems:'center' }}>
+                    <InputLabel sx={{ marginRight:'25px' }}>Reviews:</InputLabel>
+                    <TextField sx={{ marginRight:'20px' }}
                         value={reviews}
                         onChange={reviewsChangeHandler}
                         type='text'
@@ -163,8 +167,8 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         name='reviews'
                         id='reviews'
                     ></TextField>
-                    <InputLabel>Movie Poster Url:</InputLabel>
-                    <TextField
+                    <InputLabel sx={{ marginRight:'14px' }}>Poster Url:</InputLabel>
+                    <TextField sx={{ width:'300px' }}
                         value={moviePosterUrl}
                         onChange={moviePosterUrlChangeHandler}
                         type='text'
@@ -173,9 +177,9 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         id='moviePosterUrl'
                     ></TextField>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Trailer Url:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', marginBottom:'20px', alignItems:'center' }}>
+                    <InputLabel sx={{ marginRight:'15px' }}>Trailer Url:</InputLabel>
+                    <TextField sx={{ marginRight:'20px' }}
                         value={trailerUrl}
                         onChange={trailerUrlChangeHandler}
                         type='text'
@@ -183,22 +187,22 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         name='trailerUrl'
                         id='trailerUrl'
                     ></TextField>
-                    <InputLabel>Showdates:</InputLabel>
+                    <InputLabel sx={{ marginRight:'6px' }}>Showdates:</InputLabel>
                     <DateTimePicker
                         value={datePickerValue} 
                         onChange={(newValue) => setDatePickerValue(newValue)}
-                        sx={{ width: '15vw' }}
+                        sx={{ width: '300px' }}
                     ></DateTimePicker>
-                    <Button onClick={addShowDate}>Add Show Date</Button>
+                    <Button sx={{ marginLeft:'10px', marginRight:'10px', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained" onClick={addShowDate}>Add Show Date</Button>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         {showDates.map((showDate) => {
-                            return <Typography>{dayjs(showDate).format('YYYY-MM-DD @ HH:mm')}</Typography>
+                            return <Typography sx={{  }}>{dayjs(showDate).format('YYYY-MM-DD @ HH:mm')}</Typography>
                         })}
                     </Box>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>ESRB Rating:</InputLabel>
-                    <TextField
+                <Box sx={{ display: 'inline-flex', alignItems:'center', marginBottom:'10px' }}>
+                    <InputLabel sx={{ marginRight:'20px'}}>MPAA-US Rating:</InputLabel>
+                    <TextField  sx={{ width:'80px' }}
                         value={rating}
                         onChange={ratingChangeHandler}
                         type='text'
@@ -207,7 +211,7 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         id='rating'
                     ></TextField>
                 </Box>
-                <Button sx={{ width: '10vw' }} type='submit'>Add Movie</Button>
+                <Button sx={{ width: '10vw', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained" type='submit'>Add Movie</Button>
             </form>
         </Box>
     );

@@ -7,7 +7,6 @@ import { store } from './store';
 import { Provider } from 'react-redux';
 
 //These are all the exported pages that App.js uses to route through. It looks better outside of the main router page
-export { default as Navbar } from './components/Navbar/NavbarElements';
 export { default as PreviewMovie } from './pages/previewMovie/PreviewMovie';
 
 export { default as Profile } from './pages/profile/Profile';

@@ -62,14 +62,14 @@ const EditMovieForm = ({ activeMovie, triggerGetData, setTriggerGetData, setShow
     if (isLoadingUpdateMovie) return <CircularProgress sx={{ width: '100%', height: '100%', margin: 'auto' }} color='primary' />
 
     return (
-        <Box sx={{ width: '60vw', height: '40vh', backgroundColor: 'white', m: 'auto', marginTop: '20vh', p: '2vw' }}>
-            <Typography>Movie Showtimes</Typography>
+        <Box sx={{ width: '60vw', height: '65vh', backgroundColor: 'white', m: 'auto', marginTop: '10vh', p: '2vw', borderRadius: "5px"  }}>
+            <Typography sx={{ fontSize:"30px"}}>Movie Showtimes</Typography>
             <TableContainer>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Show Time</TableCell>
-                            <TableCell>Remove</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Show Time</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Remove</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -84,7 +84,7 @@ const EditMovieForm = ({ activeMovie, triggerGetData, setTriggerGetData, setShow
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Typography sx={{ mt: '4vh' }}>Add Show Time</Typography>
+            <Typography sx={{ mt: '4vh', fontSize:'20px', marginBottom:'10px' }}>Add Show Time</Typography>
             <InputLabel>Show Date:</InputLabel>
                 <DateTimePicker
                     value={datePickerValue} 

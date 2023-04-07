@@ -54,6 +54,8 @@ export class MailService {
 
     async sendConfirmationCodeEmail(targetEmail: string, activationCode: string) {
 
+        console.log('API KEY: ', process.env.SENDGRID_API_KEY);
+
         sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
         const subject = '[CINEMA BOOKING APP] - Confirm Email';

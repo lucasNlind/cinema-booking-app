@@ -64,9 +64,9 @@ const ManagePromotionsSection = ({ promotionData, triggerGetData, setTriggerGetD
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Promotion Code</TableCell>
-                            <TableCell>Discount Percentage</TableCell>
-                            <TableCell>Remove</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Promotion Code</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Discount Percentage</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Remove</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -82,8 +82,8 @@ const ManagePromotionsSection = ({ promotionData, triggerGetData, setTriggerGetD
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Button onClick={handleOpenAddPromotionModal}>Add Promotion</Button>
-            <Button onClick={handleSendPromotions}>Send Promotions to All Users</Button>
+            <Button sx={{ marginLeft:'auto', marginRight:'auto', marginTop:'20px', width:'200px', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained" onClick={handleOpenAddPromotionModal}>Add Promotion</Button>
+            <Button sx={{ marginLeft:'auto', marginRight:'auto', marginTop:'20px', width:'300px', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained" onClick={handleSendPromotions}>Send Promotions to All Users</Button>
         </Box>
     );
 };
