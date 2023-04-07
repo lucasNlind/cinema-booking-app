@@ -33,11 +33,11 @@ const AddPromotionForm = ({ triggerGetData, setTriggerGetData, setIsLoading, set
     };
 
     return (
-        <Box sx={{ width: '60vw', height: '40vh', backgroundColor: 'white', m: 'auto', marginTop: '20vh', p: '2vw' }}>
-            <Typography>Add Promotion</Typography>
+        <Box sx={{ width: '40vw', height: '30vh', backgroundColor: 'white', m: 'auto', marginTop: '20vh', p: '2vw', borderRadius: "5px" }}>
+            <Typography sx={{ fontSize:"30px" , marginBottom:"10px" }}>Add Promotion</Typography>
             <form onSubmit={onSubmitHandler}>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Promotion Code:</InputLabel>
+                <Box sx={{ display: 'inline-flex', alignItems:'center' }}>
+                    <InputLabel sx={{ marginRight:'40px' }}>Promotion Code:</InputLabel>
                     <TextField
                         value={promotionCode}
                         onChange={promotionCodeChangeHandler}
@@ -47,8 +47,8 @@ const AddPromotionForm = ({ triggerGetData, setTriggerGetData, setIsLoading, set
                         id='promotionCode'
                     ></TextField>
                 </Box>
-                <Box sx={{ display: 'inline-flex' }}>
-                    <InputLabel>Discount Percentage:</InputLabel>
+                <Box sx={{ display: 'inline-flex', alignItems:'center', marginTop:'20px' }}>
+                    <InputLabel sx={{ marginRight:'6px' }}>Discount Percentage:</InputLabel>
                     <TextField
                         value={discountPercentage}
                         onChange={discountPercentageChangeHandler}
@@ -58,7 +58,7 @@ const AddPromotionForm = ({ triggerGetData, setTriggerGetData, setIsLoading, set
                         id='discountPercentage'
                     ></TextField>
                 </Box>
-                <Button type='submit'>Add Promotion</Button>
+                <Button sx={{ marginTop:'20px', width:'200px', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained"  type='submit'>Add Promotion</Button>
             </form>
         </Box>
     );

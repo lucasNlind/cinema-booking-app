@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 
-import { PreviewMovie, Navbar, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
+import { Navbar, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
 /* These are the imported components from the index.js file so it is neater in the App.js file*/
 
 import Home from '../src/pages/home/Home';
 import AdminConsole from './pages/admin/AdminConsole';
 import MoviePage from './pages/booking/MoviePage';
+
+import NavbarElements from './components/navbar/NavbarElements';
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -25,7 +27,7 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Router>
-        <Navbar />
+        <NavbarElements />
         <Routes>
           <Route exact path='/' element={ <Home />} />
 

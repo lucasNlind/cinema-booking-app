@@ -58,13 +58,13 @@ const ManageMoviesSection = ({ movieData, triggerGetData, setTriggerGetData, isL
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Director</TableCell>
-                            <TableCell>Producer</TableCell>
-                            <TableCell>Show Dates</TableCell>
-                            <TableCell>Rating</TableCell>
-                            <TableCell>Edit</TableCell>
-                            <TableCell>Remove</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Title</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Director</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Producer</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Show Dates</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Rating</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Edit</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>Remove</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -74,9 +74,9 @@ const ManageMoviesSection = ({ movieData, triggerGetData, setTriggerGetData, isL
                                     <TableCell>{movie.title}</TableCell>
                                     <TableCell>{movie.director}</TableCell>
                                     <TableCell>{movie.producer}</TableCell>
-                                    <TableCell sx={{ display: 'flex', flexDirection: 'column' }}>
+                                    <TableCell >
                                         {movie.showDates.map((showDate) => {
-                                            return <Typography>{dayjs(showDate).format('YYYY-MM-DD @ HH:mm')}</Typography>
+                                            return <Typography sx={{ display: 'flex', flexDirection: 'column'}}>{dayjs(showDate).format('YYYY-MM-DD @ HH:mm')}</Typography>
                                         })}
                                     </TableCell>
                                     <TableCell>{movie.rating}</TableCell>
@@ -89,7 +89,9 @@ const ManageMoviesSection = ({ movieData, triggerGetData, setTriggerGetData, isL
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Button onClick={handleOpenAddMovieModal}>Add Movie</Button>
+            <Box sx={{ marginLeft:'auto', marginRight:'auto'}}>
+            <Button sx={{ display: 'flex', width: '10vw', textAlign:'center', backgroundColor:'#496A81', '&:hover':{backgroundColor:'#5F7C90'} }} variant="contained" onClick={handleOpenAddMovieModal}>Add Movie</Button>
+            </Box>
         </Box>
     );
 };
