@@ -299,8 +299,8 @@ const BookingFlow = () => {
                         })
                     : ''}
                     <PaymentForm
-                        setSelectedPaymentCard={setSelectedPaymentCard}
                         userData={userData}
+                        setSelectedPaymentCard={setSelectedPaymentCard}
                         isProvidingPaymentInfo={isProvidingPaymentInfo}
                         setIsProvidingPaymentInfo={setIsProvidingPaymentInfo}
                         isHomeAndBillingAddressEqual={isHomeAndBillingAddressEqual}

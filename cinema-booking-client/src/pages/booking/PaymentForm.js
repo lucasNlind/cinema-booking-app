@@ -161,7 +161,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={cardNumberChangeHandler}
                         onBlur={cardNumberBlurHandler}
                         error={cardNumberHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={cardNumberHasError ? 'Enter a valid card number' : ''}
                         type='text'
                         name='cardNumber'
@@ -195,7 +195,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={expirationDateChangeHandler}
                         onBlur={expirationDateBlurHandler}
                         error={expirationDateHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={expirationDateHasError ? 'Expiration date should be MM/YY' : ''}
                         type='text'
                         name='expirationDate'
@@ -232,7 +232,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={cardHolderNameChangeHandler}
                         onBlur={cardHolderNameBlurHandler}
                         error={cardHolderNameHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={cardHolderNameHasError ? 'Enter your name' : ''}
                         type='text'
                         name='cardHolderName'
@@ -266,7 +266,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={cvvChangeHandler}
                         onBlur={cvvBlurHandler}
                         error={cvvHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={cvvHasError ? 'Invalid Code' : ''}
                         type='text'
                         name='cvv'
@@ -286,7 +286,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                                     <Checkbox
                                         checked={isHomeAndBillingAddressEqual}
                                         onChange={handleMatchBillingAddress}
-                                        disabled={!isProvidingPaymentInfo}
+                                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                                     />
                                 }
                                 label="Same as home address"
@@ -323,7 +323,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={billingStreetNameChangeHandler}
                         onBlur={billingStreetNameBlurHandler}
                         error={billingStreetNameHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={billingStreetNameHasError ? 'Enter a valid street name' : ''}
                         type='text'
                         name='billingStreetName'
@@ -357,7 +357,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={billingCityChangeHandler}
                         onBlur={billingCityBlurHandler}
                         error={billingCityHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={billingCityHasError ? 'Enter a valid city' : ''}
                         type='text'
                         name='billingCity'
@@ -395,7 +395,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={billingStateChangeHandler}
                         onBlur={billingStateBlurHandler}
                         error={billingStateHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         select
                         name='billingState'
                         id='billingState'
@@ -432,7 +432,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                         onChange={billingZipCodeChangeHandler}
                         onBlur={billingZipCodeBlurHandler}
                         error={billingZipCodeHasError}
-                        disabled={!isProvidingPaymentInfo}
+                        disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0}
                         helperText={billingZipCodeHasError ? 'Enter a valid ZIP Code' : ''}
                         type='text'
                         name='billingZipCode'
@@ -442,7 +442,7 @@ const PaymentForm = ({ setSelectedPaymentCard, userData, isProvidingPaymentInfo,
                     />
                 </Box>
             </Box>
-            <Button disabled={!isProvidingPaymentInfo} sx={{ mt: '2vh' }} onClick={handleSavePayment}>Add Payment Info</Button>
+            <Button disabled={!isProvidingPaymentInfo && userData.paymentInfo.length !== 0} sx={{ mt: '2vh' }} onClick={handleSavePayment}>Add Payment Info</Button>
         </Box>
     );  
 };
