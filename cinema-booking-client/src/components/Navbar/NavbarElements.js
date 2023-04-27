@@ -33,7 +33,7 @@ const NavbarElements= () => {
 
     const goToAdminConsolePage = () => {
         navigate('/admin')
-    }
+    };
 
     const logoutHandler = () => {
         dispatch(logout());

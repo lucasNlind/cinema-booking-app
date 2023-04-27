@@ -16,7 +16,7 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
     const { text: director, inputChangeHandler: directorChangeHandler } = useInput();
     const { text: producer, inputChangeHandler: producerChangeHandler } = useInput();
     const { text: summary, inputChangeHandler: summaryChangeHandler } = useInput();
-    const { text: reviews, iinputChangeHandler: reviewsChangeHandler } = useInput();
+    const { text: reviews, inputChangeHandler: reviewsChangeHandler } = useInput();
     const { text: moviePosterUrl, inputChangeHandler: moviePosterUrlChangeHandler } = useInput();
     const { text: trailerUrl, inputChangeHandler: trailerUrlChangeHandler } = useInput();
     const { text: rating, inputChangeHandler: ratingChangeHandler } = useInput();
@@ -109,7 +109,7 @@ const AddMovieForm = ({ triggerGetData, setTriggerGetData, setIsLoading, setShow
                         <MenuItem value='action'>Action</MenuItem>
                         <MenuItem value='sci-fi'>Sci-Fi</MenuItem>
                         <MenuItem value='comedy'>Comedy</MenuItem>
-                        <MenuItem value='comantic-comedy'>Romantic Comedy</MenuItem>
+                        <MenuItem value='romantic-comedy'>Romantic Comedy</MenuItem>
                         <MenuItem value='drama'>Drama</MenuItem>
                     </TextField>
                 </Box>

@@ -179,7 +179,7 @@ const ProfileHomeSection = ({ userData, isLoading, setIsLoading, triggerGetData,
                                     borderRadius: '5px' 
                                 },
                                 "& .MuiInputBase-input.Mui-disabled": {
-                                    backgroundColor: '#C7C7C7'
+                                    backgroundColor: '#C7C7C7',
                                 }
                             }}
                             value={!isEditingProfile ? userData.firstName : firstName}
