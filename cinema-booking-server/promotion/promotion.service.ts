@@ -30,8 +30,17 @@ export class PromotionService {
     }
 
     async deletePromotion(promotionId: string) {
-        console.log('promotionId: ', promotionId);
         await this.promotionModel.deleteOne({ _id: promotionId }).exec();
+    }
+
+    async validatePromotionCode(promotionCode: string): Promise<number> {
+        const promotions = await this.fetchAllPromotions();
+        for (const promotion of promotions) {
+            if (promotionCode.replace('-', '').toLowerCase() === promotion.promotionCode.replace('-', '').toLowerCase()) {
+                return promotion.discountPercentage;
+            }
+        }
+        return 0;
     }
 
 }

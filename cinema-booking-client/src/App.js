@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 
-import { Navbar, Checkout, OrderConfirmation, OrderSummary, SeatSelect, TicketSelect} from './index';
 /* These are the imported components from the index.js file so it is neater in the App.js file*/
 
 import Home from '../src/pages/home/Home';
 import AdminConsole from './pages/admin/AdminConsole';
 import MoviePage from './pages/booking/MoviePage';
 
-import NavbarElements from './components/navbar/NavbarElements';
+import NavigationBar from './components/navbar/NavigationBar.component';
 
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
@@ -22,16 +21,18 @@ import UnauthenticatedUserPrivateRoute from './features/auth/components/Unauthen
 
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import BookingFlow from './pages/booking/BookingFlow';
 
 function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Router>
-        <NavbarElements />
+        <NavigationBar />
         <Routes>
-          <Route exact path='/' element={ <Home />} />
 
+          <Route exact path='/' element={ <Home />} />
           <Route path='/movie' element={ <MoviePage /> } />
+          <Route path='/movie/book' element={ <AuthenticatedUserPrivateRoute page={<BookingFlow /> } /> } />
 
           {/* ADMIN */}
           <Route path='/admin' element={ <AdminPrivateRoute page={ <AdminConsole /> } /> } />
@@ -45,12 +46,6 @@ function App() {
           <Route path='/confirm-email' element={ <UnauthenticatedUserPrivateRoute page={ <ConfirmEmail /> } /> } />
           <Route path='/forgot-password' element={ <UnauthenticatedUserPrivateRoute page={ <ForgotPassword /> } /> } />
 
-          <Route path='/seatselect' element={ <SeatSelect />} />
-          <Route path='/ticketselect' element={ <TicketSelect />} />
-          <Route path='/ordersummary' element={ <OrderSummary />} />
-          <Route path='/checkout' element={ <Checkout />} /> 
-          <Route path='/orderconfirmation' element={ <OrderConfirmation />} />
-          <Route path='*' element={ <Navigate to='/' /> } />
         </Routes>
       </Router>
     </LocalizationProvider>

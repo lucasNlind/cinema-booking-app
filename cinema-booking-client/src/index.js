@@ -6,15 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './store';
 import { Provider } from 'react-redux';
 
-//These are all the exported pages that App.js uses to route through. It looks better outside of the main router page
-export { default as PreviewMovie } from './pages/previewMovie/PreviewMovie';
-
-export { default as Profile } from './pages/profile/Profile';
-export { default as TicketSelect } from './pages/booking/TicketSelect';
-export { default as SeatSelect } from './pages/booking/SeatSelect';
-export { default as OrderSummary } from './pages/booking/OrderSummary';
-export { default as Checkout } from './pages/booking/Checkout';
-export { default as OrderConfirmation } from './pages/booking/OrderConfirmation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

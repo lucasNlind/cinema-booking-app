@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import MovieCarousel from '../../components/header/MovieCarousel';
-import { Box, TextField, Typography, MenuItem } from '@mui/material';
+import { Box, TextField, Typography, MenuItem, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // This is the home page component that displays the Movie Carousel, Now Playing,
@@ -75,8 +75,6 @@ const Home = () => {
 
     useEffect(() => {
 
-        console.log('moviesShowingNowSearchCategory: ', moviesShowingNowSearchCategory);
-
         if (moviesShowingNowSearchCategory === 'title') {
             const moviesShowingNowSearchResult = moviesShowingNow.filter((movie) => {
                 return movie.title.toLowerCase().includes(moviesShowingNowSearchBarContent);
@@ -108,9 +106,9 @@ const Home = () => {
     }, [moviesComingSoonSearchBarContent]);
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', m: 'auto' }}>
             <MovieCarousel />
-            <Typography sx={{ textAlign: 'center', mt: '4vh' }}>Showing Now</Typography>
+            <Typography sx={{ fontSize: '3vw', textAlign: 'center', mt: '4vh', mb: '2vh' }}>Showing Now</Typography>
             <Box sx={{ display: 'inline-flex', m: 'auto' }}>
                 <Typography>Search: </Typography>
                 <TextField onChange={handleSearchMoviesShowingNow} sx={{ width: '20vw' }}></TextField>
@@ -119,10 +117,10 @@ const Home = () => {
                     <MenuItem value='category'>By Category</MenuItem>
                 </TextField>
             </Box>
-            <Box sx={{ width: '60vw', display: 'inline-flex', m: 'auto', justifyContent: 'center', mt: '5vh' }}>
+            <Grid container spacing={3} sx={{ width: '60vw', display: 'inline-flex', m: 'auto', justifyContent: 'center', mt: '5vh' }}>
                 {moviesShowingNowFiltered.length > 0 ? moviesShowingNowFiltered.map((movie) => {
                     return (
-                        <Box sx={{ width: '10vw' }}>
+                        <Grid item key={moviesShowingNowFiltered.indexOf(movie)} sx={{ width: '10vw', mb: '5vh' }} xs={3}>
                             <Typography sx={{ textAlign: 'center' }}><strong>{movie.title}</strong></Typography>
                             <Box sx={{ m: 'auto' }}>
                                 <img
@@ -141,11 +139,11 @@ const Home = () => {
                             <a target='_blank' href={movie.trailerUrl}>
                                 <Typography sx={{ textAlign: 'center' }}>Trailer</Typography>
                             </a>
-                        </Box>
+                        </Grid>
                     )
                 }) : <Typography>No movies found.</Typography>}
-            </Box>
-            <Typography sx={{ textAlign: 'center', mt: '4vh' }}>Coming Soon</Typography>
+            </Grid>
+            <Typography sx={{ fontSize: '3vw', textAlign: 'center', mt: '4vh', mb: '2vh' }}>Coming Soon</Typography>
             <Box sx={{ display: 'inline-flex', m: 'auto' }}>
                 <Typography>Search: </Typography>
                 <TextField onChange={handleSearchMoviesComingSoon} sx={{ width: '20vw' }}></TextField>
@@ -154,10 +152,10 @@ const Home = () => {
                     <MenuItem value='category'>By Category</MenuItem>
                 </TextField>
             </Box>
-            <Box sx={{ width: '60vw', display: 'inline-flex', m: 'auto', justifyContent: 'center', mt: '5vh' }}>
+            <Grid container spacing={3} sx={{ width: '60vw', display: 'inline-flex', m: 'auto', justifyContent: 'center', mt: '5vh' }}>
                 {moviesComingSoonFiltered.length > 0 ? moviesComingSoonFiltered.map((movie) => {
                     return (
-                        <Box sx={{ width: '10vw' }}>
+                        <Grid item key={moviesComingSoonFiltered.indexOf(movie)} sx={{ width: '10vw', mb: '5vh' }} xs={3}>
                             <Typography sx={{ textAlign: 'center' }}><strong>{movie.title}</strong></Typography>
                             <Box sx={{ m: 'auto' }}>
                                 <img
@@ -176,10 +174,10 @@ const Home = () => {
                             <a target='_blank' href={movie.trailerUrl}>
                                 <Typography sx={{ textAlign: 'center' }}>Trailer</Typography>
                             </a>
-                        </Box>
+                        </Grid>
                     )
                 }) : <Typography>No movies found.</Typography>}
-            </Box>
+            </Grid>
         </Box>
     );
 };

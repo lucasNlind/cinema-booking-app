@@ -1,10 +1,10 @@
 import './navbarElements.css';
 
 import React from 'react';
-import logo from '../../images/logo-design-color.png';
+import logo from '../../assets/logo-design-color.png';
 
 import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux/hooks';
 import { Box, Typography } from '@mui/material';
 import { logout, reset } from '../../features/auth/authSlice';
@@ -179,25 +179,3 @@ const NavbarElements = () => {
 
 }
 export default NavbarElements;
-
-// <div className="sticky-bar">
-            
-// <ul className="navflex">
-//     <Link id="logo-link" to="/"><img className="nav-logo" src={logo} alt="logo"/></Link>
-//     <Link id="title-link" to="/"><h1 className="nav-title">C3 Cinemas</h1></Link>
-//     {/**This is an invisible divider so the logos are on one side and the links are on the other */}
-//     <h1 className='divider'>  </h1>
-// <li>
-//     <Link to="/">Home</Link>
-// </li>
-// <li>
-//     <Link to="/login">Login</Link>
-// </li>
-// <li>
-//     <Link to="/register">Register</Link>
-// </li>
-// <li>
-//     <Link to="/adminhome">Admin</Link>
-// </li>
-// </ul>
-// </div>

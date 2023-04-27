@@ -68,7 +68,7 @@ const Login = () => {
 
     return (
         <Box sx={{ color: 'white', width: '40vw', margin: 'auto', marginTop: '10vh', marginBottom: '10vh' }}>
-            <Typography sx={{ width: '17vw', fontSize: '2vw', color: 'black', m: 'auto', mt: '3vh', textAlign: 'center' }}>Login</Typography>
+            <Typography sx={{ width: '17vw', fontSize: '2vw', color: 'black', m: 'auto', textAlign: 'center' }}>Login</Typography>
             <form onSubmit={onSubmitHandler} style={{ width: '30vw', margin: 'auto', }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', m: 'auto', marginTop: '3vh' }}>
                     <InputLabel

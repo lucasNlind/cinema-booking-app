@@ -369,7 +369,7 @@ const Register = () => {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', margin: 'auto', justifyContent: 'center' }}>
-            <form onSubmit={onSubmitHandler}>
+            <form onSubmit={onSubmitHandler} style={{ margin: 'auto' }}>
                 <Box sx={{ display: 'inline-flex' }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', m: 'auto', mt: '2vh', mr: '3vw' }}>
                         <Typography sx={{ fontSize: '2.5vw', color: 'black', textAlign: 'center', mt: '5vh', mb: '4vh' }}>Register</Typography>

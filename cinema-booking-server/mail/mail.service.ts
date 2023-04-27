@@ -4,6 +4,7 @@ import * as sgMail from '@sendgrid/mail';
 import { UserService } from 'cinema-booking-server/user/user.service';
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { PromotionService } from 'cinema-booking-server/promotion/promotion.service';
+import { Payment } from 'cinema-booking-server/user/dto/user-payment-info.dto';
 
 @Injectable()
 export class MailService {
@@ -54,8 +55,6 @@ export class MailService {
 
     async sendConfirmationCodeEmail(targetEmail: string, activationCode: string) {
 
-        console.log('API KEY: ', process.env.SENDGRID_API_KEY);
-
         sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
 
         const subject = '[CINEMA BOOKING APP] - Confirm Email';
@@ -76,6 +75,47 @@ export class MailService {
                 statusCode: 200,
                 message: 'Success'
             }
+        } catch (error) {
+            console.log(error)
+            throw new HttpException('Error sending confirmation mail', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    async sendOrderConfirmationEmail(
+        email: string,
+        movieTitle: string,
+        totalPrice: number,
+        paymentInfo: Payment,
+        selectedSeats: Array<string>
+    ): Promise<void> {
+
+        sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`);
+
+        let selectedSeatsString = "";
+
+        for (const seat of selectedSeats) {
+            selectedSeatsString += seat + " ";
+        }
+
+        const subject = '[CINEMA BOOKING APP] - Confirmation of Purchase';
+        const htmlMain = 
+            `<p><strong>Order Confirmation</strong></p>` +
+            `<p>Movie Title: <strong>${movieTitle}</strong></p>` +
+            `<p>Total Price: <strong>$${totalPrice}</strong></p>` +
+            `<p>Payment Method: <strong>XXXX-XXXX-XXXX-${paymentInfo.cardNumber.slice(-4)}</strong></p>` + 
+            `<p>Selected Seats: <strong>${selectedSeatsString}</strong></p>`;
+
+        const msg = {
+            to: email,
+            from: 'lnl29512@uga.edu',
+            subject: subject,
+            text: 'Your order confirmation',
+            html: htmlMain
+        };
+
+        try {
+            await sgMail.send(msg);
+            console.log('Successfully sent order confirmation email.');
         } catch (error) {
             console.log(error)
             throw new HttpException('Error sending confirmation mail', HttpStatus.INTERNAL_SERVER_ERROR);

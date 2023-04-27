@@ -15,7 +15,6 @@ const ProfilePaymentSection = ({ userData, isLoading, setIsLoading, triggerGetDa
     const [open, setOpen] = useState(false);
     const [isHomeAndBillingAddressEqual, setIsHomeAndBillingAddressEqual] = useState(false);
     
-
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -335,6 +334,7 @@ const ProfilePaymentSection = ({ userData, isLoading, setIsLoading, triggerGetDa
                                                     />
                                                 }
                                                 label="Same as home address"
+                                                disabled={userData.homeAddress === null}
                                             />
                                         </FormGroup>
                                     </Box>

@@ -18,6 +18,12 @@ export class PromotionController {
         );
     }
 
+    @Post('/verify/:promotionCode')
+    verifyPromotion(@Param('promotionCode') promotionCode: string): Promise<number> {
+        console.log('promotionCode: ', promotionCode);
+        return this.promotionService.validatePromotionCode(promotionCode);
+    }
+
     @Get('fetch-all')
     getAllPromotions(): Promise<PromotionDocument[]> {
         return this.promotionService.fetchAllPromotions();
@@ -25,7 +31,6 @@ export class PromotionController {
 
     @Delete('delete/:promotionId')
     deletePromotion(@Param('promotionId') promotionId: string) {
-        console.log('controller: ', promotionId);
         return this.promotionService.deletePromotion(promotionId);
     }
 

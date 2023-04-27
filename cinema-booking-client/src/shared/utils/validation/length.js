@@ -24,3 +24,7 @@ export const validateCardNumberLength = (text) => {
 export const validateCvvLength = (text) => {
     return _validateLength(text, { min: 3, max: 3 });
 }
+
+export const validatePromotionCodeLength = (text) => {
+    return _validateLength(text, { min: 6, max: 6});
+}

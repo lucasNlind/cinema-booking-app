@@ -21,7 +21,6 @@ export class MovieController {
         @Body('showDates') showDates: Array<number>,
         @Body('rating') rating: string
     ): Promise<MovieDocument> {
-        console.log('showDates: ', showDates);
         return this.movieService.create(
             title,
             category,
